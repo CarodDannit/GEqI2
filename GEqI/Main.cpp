@@ -12,7 +12,7 @@ using namespace std;
 //ma
 //a
 //gege hao shuai
-
+//alif ba ta
 
 
 

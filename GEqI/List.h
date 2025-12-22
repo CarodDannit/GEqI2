@@ -23,11 +23,13 @@ public:
 	void AddToFront();
 	void AddMaintenance(List<Equipment>& equipmentList);
 	void DeleteFront();
+	//ammar buat binary, sentinel
 	bool SearchItem(int, int&);
 	void printEquipment();
 	void printConsumable();
 	void printMaintenance();
 	int NumberOfItem();
+	//function sorting based on id (ascending or decending) ni amira
 };
 
 #endif

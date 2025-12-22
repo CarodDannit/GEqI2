@@ -21,7 +21,7 @@ int main() {
 	List<Equipment> eqp1;
 	List<Consumable> cnm1;
 	List<Maintenance> mnc1;
-	int optionMenu, optionAdd, optionDisplay;
+	int optionMenu, optionAdd, optionDisplay,optionSearch;
 
 	do {
 
@@ -55,6 +55,30 @@ int main() {
 		case 3: //delete equipment and maybe consumable
 			eqp1.DeleteFront(); 
 			break;
+		
+		case 5: {
+			cout << "Pick search method:\n";
+			cout << "1. Sentinel Search\n";
+			cout << "2. Binary Search\n";
+			cin >> optionSearch;
+			system("cls");
+
+			int targetID, location;
+			cout << "Enter ID to search: ";
+			cin >> targetID;
+
+			bool found = false;
+			if (optionSearch == 1) {
+				found = eqp1.SearchItem(targetID, location);
+				if (found) {
+					cout << "\033[32mItem found at position: " << location << "\033[0m\n";
+				}
+				else {
+					cout << "\033[31mItem not found\033[0m\n";
+				}
+			}
+			break;
+		}
 
 		case 6: //maintenance.. can add maintenance and maybe update status?
 			int optionMnc;

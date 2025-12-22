@@ -23,6 +23,7 @@ public:
 	void AddToFront();
 	void AddMaintenance(List<Equipment>& equipmentList);
 	void DeleteFront();
+	//binary sentinel
 	bool SearchItem(int, int&);
 	void printEquipment();
 	void printConsumable();
@@ -98,18 +99,37 @@ bool List<T>::SearchItem(int targetID, int& loc) {
 		cout << "There is no item in the list" << endl;
 		return false;
 	}
-	else {
-		pCurr = pHead;
-		loc = 0;
-		while (pCurr != nullptr) {
-			if (pCurr->data.getID() == targetID) {
-				return true;
-			}
-			pCurr = pCurr->link;
-			loc++;
-		}
-		return false;
+
+	Node* sentinel = new Node();
+	sentinel->data.setID(targetID); 
+	sentinel->link = nullptr;
+
+	// Attach sentinel to end of list
+	pCurr = pHead;
+	Node* pLast = nullptr;
+	while (pCurr != nullptr) {
+		pLast = pCurr;
+		pCurr = pCurr->link;
 	}
+	if (pLast) pLast->link = sentinel;
+	else pHead = sentinel;
+
+	// Search with sentinel
+	pCurr = pHead;
+	loc = 0;
+	while (pCurr->data.getID() != targetID) {
+		pCurr = pCurr->link;
+		loc++;
+	}
+
+	// Remove sentinel
+	if (pLast) pLast->link = nullptr;
+	else pHead = nullptr;
+
+	bool found = (loc < numItem);
+	delete sentinel;
+
+	return found;
 }
 
 template <class T>

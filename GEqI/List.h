@@ -29,6 +29,7 @@ public:
 	void printConsumable();
 	void printMaintenance();
 	int NumberOfItem();
+	//function sorting based on id (ascending or decending) ni amira
 };
 
 #endif

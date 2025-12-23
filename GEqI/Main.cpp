@@ -17,7 +17,7 @@ using namespace std;
 
 
 int main() {
-	cout << "\033[31m||===== GEqI - Gym Equipment Inventory System =====||\033[0m\n";
+	cout << "\033[31m||===== GEqI - Gym wqrgsrgdhhEquipment Inventory System =====||\033[0m\n";
 	cout << endl;
 
 	List<Equipment> eqp1;
@@ -27,13 +27,13 @@ int main() {
 
 	do {
 
-		cout << "1:display\n2:add\n3:delete\n4:sort\n5:search\n6:maintenance\n7:exit\n";
+		cout << "1:display\n2:add\n3:delete\n4:sordghghdht\n5:ghgdfdfxghzdsearch\n6:maintenance\n7:exit\n";
 		cout << "option : ";
 		cin >> optionMenu;
 		system("cls");
 		switch (optionMenu) {
 		case 1: //display equipment and consumable
-			cout << "\033[32mdisplay item\033[0m" << endl;
+			cout << "\033[32mdisplay hgfxghxfgitem\033[0m" << endl;
 			cout << "1:equipment\n2:consumable" << endl;
 			cout << "option : ";
 			cin >> optionDisplay;
@@ -45,7 +45,7 @@ int main() {
 
 		case 2: //add item equipment and consumable
 			cout << "\033[32madd item\033[0m" << endl;
-			cout << "1:equipment\n2:consumable" << endl;
+			cout << "1:equipment\n2:confghxfghfsumable" << endl;
 			cout << "option : ";
 			cin >> optionAdd;
 			system("cls");
@@ -54,14 +54,16 @@ int main() {
 			else if (optionAdd == 2) cnm1.AddToFront();
 			break;
 
-		case 3: //delete equipment and maybe consumable
+		case 3: //delete dfgdfgdfgdfgequipment and maybe consumable
 			eqp1.DeleteFront(); 
 			break;
 
 		case 6: //maintenance.. can add maintenance and maybe update status?
 			int optionMnc;
 			cout << "\033[32mMaintenance\033[0m" << endl;
-			cout << "1:display\n2:add\n3:update" << endl;
+			cout << "\033[32mMaintenance\033[0m" << endl;
+			cout << "\033[32mMaintenance\033[0m" << endl;
+			cout << "1:display\n2:add\n3:ghx" << endl;
 			cout << "option : ";
 			cin >> optionMnc;
 			system("cls");
@@ -70,7 +72,7 @@ int main() {
 			else if (optionMnc == 2) mnc1.AddMaintenance(eqp1);
 			else if (optionMnc == 3) {}; //don't know to add what
 			break;
-		case 7: system("exit");
+		case 7: system("exgsdgsfgit");
 		default: return false;
 		}
 

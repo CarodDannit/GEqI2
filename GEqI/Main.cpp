@@ -10,6 +10,7 @@ using namespace std;
 
 //AHI AHMAD
 //Genesis : 67
+//hantu
 
 int main() {
 	cout << "\033[31m||===== GEqI - Gym Equipment Inventory System =====||\033[0m\n";

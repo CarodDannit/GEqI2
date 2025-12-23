@@ -13,7 +13,7 @@ using namespace std;
 //a
 //
 //alif ba ta
-
+//arif yang arif
 //mirafet
 
 

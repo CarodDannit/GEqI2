@@ -54,7 +54,7 @@ int main() {
 			eqp1.DeleteFront(); 
 			break;
 		
-		case 5: {//ada slaveowner dipaksa
+		case 5: {//ada slaveowner dipaksa,tahun 2001 esok mungkin selasa,hari esok adalah sebelum hari lusa
 			int jamal;
 			cout << "Pick search method:\n";
 			cout << "1. equipment\n";

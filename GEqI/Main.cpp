@@ -55,16 +55,16 @@ int main() {
 			break;
 		
 		case 5: {//ada slaveowner dipaksa,tahun 2001 esok mungkin selasa,hari esok adalah sebelum hari lusa
-			int jamal;
-			cout << "Pick search method:\n";
-			cout << "1. equipment\n";
-			cout << "2. consumable\n";
-			cin >> jamal;
-			system("cls");
-			cout << "1. Sentinel Search\n";
-			cout << "2. Binary Search\n";
-			cin >> optionSearch;
-			system("cls");
+			int jamal;//HAHAHAHHAHA
+			cout << "Pick search method:\n";//APPA NI WOIIIIII
+			cout << "1. equipment\n";//AKU XNAKKKKK
+			cout << "2. consumable\n";//AKU XNAKKKKKKKKKKKKKKKKKKKKKKKK
+			cin >> jamal;//JANGANNNNNNN
+			system("cls");//AGHHHHHHHHHHHHHHHHHHHHHHHH
+			cout << "1. Sentinel Search\n";//TAKOTTTTTT
+			cout << "2. Binary Search\n";//XBOLEHGHHHHHH
+			cin >> optionSearch;//APE NIIIIIIIIIIIIIIII
+			system("cls");//APEKAHHHHHHHHHHHHHHHHHHHHHH
 
 			int targetID, location;
 			cout << "Enter ID to search: ";

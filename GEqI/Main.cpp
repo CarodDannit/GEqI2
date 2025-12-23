@@ -89,18 +89,6 @@ int main() {
 					}
 				}
 			}
-			else if (jamal == 2) {
-				if (optionSearch == 1) {
-					found = eqp1.SearchItem(targetID, location);
-					if (found) {
-						cout << "\033[32mItem found at position: " << location << "\033[0m\n";
-						eqp1.printSingleConsumable(targetID);
-					}
-					else {
-						cout << "\033[31mItem not found\033[0m\n";
-					}
-				}
-			}
 			break;
 		}
 

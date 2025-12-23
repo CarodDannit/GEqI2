@@ -10,6 +10,7 @@ using namespace std;
 
 //AHI AHMAD
 //Genesis : 67
+//Al-Kahf 1-10
 //hantu
 
 int main() {

@@ -8,22 +8,6 @@ using namespace std;
 #include "Consumable.h"
 #include "Maintenance.h"
 
-<<<<<<< HEAD
-//LOREM
-//LOREM
-//LOREM
-//LOREM
-//LOREM
-//LOREM
-=======
-//hellobhjyuvt687yu
-//ma
-//a
-
-// AHMAD
-
-
->>>>>>> bdb8044 (ytjyyt)
 
 int main() {
 	cout << "\033[31m||===== GEqI - Gym Equipment Inventory System =====||\033[0m\n";

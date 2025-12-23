@@ -31,6 +31,7 @@ public:
 	int NumberOfItem();
 	//function sorting based on id (ascending or decending) : amira
 	void sortID(bool asc); //loollolololololol
+	//lololololol
 };
 
 #endif

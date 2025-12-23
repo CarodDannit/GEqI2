@@ -26,7 +26,9 @@ public:
 	//binary sentinel
 	bool SearchItem(int, int&);
 	void printEquipment();
+	void printSingleEquipment(int targetID);//idk how,but it works. might not even working. put your trust in lord
 	void printConsumable();
+	void printSingleConsumable(int targetID);//same thing.just put your trust in lord
 	void printMaintenance();
 	int NumberOfItem();
 	//function sorting based on id (ascending or decending) ni amira
@@ -159,6 +161,30 @@ void List<T>::printEquipment() {
 }
 
 template <class T>
+void List<T>::printSingleEquipment(int targetID) {
+	pCurr = pHead;
+	cout << "\033[31m+---------------------------------------------------------------------------+\033[0m\n";
+	cout << "\033[31m| "
+		<< left << setw(6) << "ID" << "| "
+		<< setw(15) << "NAME" << "| "
+		<< setw(15) << "CATEGORY" << "| "
+		<< setw(15) << "STATUS" << "| "
+		<< setw(15) << "CONDITION"
+		<< "|\033[0m\n";
+	cout << "\033[31m+---------------------------------------------------------------------------+\033[0m\n";
+		cout << "| "
+			<< left << setw(6) << pCurr->data.getID() << "| "
+			<< setw(15) << pCurr->data.getName() << "| "
+			<< setw(15) << pCurr->data.getCategory() << "| "
+			<< setw(15) << pCurr->data.getStatus() << "| "
+			<< setw(15) << pCurr->data.getCondition()
+			<< "|\n";
+		pCurr = pCurr->link;
+	
+	cout << endl;
+}
+
+template <class T>
 void List<T>::printConsumable() {
 	pCurr = pHead;
 	cout << "\033[31m+----------------------------------------------------------+\033[0m\n";
@@ -178,6 +204,28 @@ void List<T>::printConsumable() {
 			<< "|\n";
 		pCurr = pCurr->link;
 	}
+	cout << endl;
+}
+
+template <class T>
+void List<T>::printSingleConsumable(int targetID) {
+	pCurr = pHead;
+	cout << "\033[31m+----------------------------------------------------------+\033[0m\n";
+	cout << "\033[31m| "
+		<< left << setw(6) << "ID" << "| "
+		<< setw(15) << "NAME" << "| "
+		<< setw(15) << "QUANTITY" << "| "
+		<< setw(15) << "UNIT PRICE RM"
+		<< "|\033[0m\n";
+	cout << "\033[31m+----------------------------------------------------------+\033[0m\n";
+		cout << "| "
+			<< left << setw(6) << pCurr->data.getID() << "| "
+			<< setw(15) << pCurr->data.getName() << "| "
+			<< setw(15) << pCurr->data.getQuantity() << "| "
+			<< setw(15) << pCurr->data.getUnitPrice()
+			<< "|\n";
+		pCurr = pCurr->link;
+	
 	cout << endl;
 }
 

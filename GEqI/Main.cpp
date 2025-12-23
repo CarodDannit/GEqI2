@@ -60,8 +60,13 @@ int main() {
 			eqp1.DeleteFront(); 
 			break;
 		
-		case 5: {
+		case 5: {//ada slaveowner dipaksa
+			int jamal;
 			cout << "Pick search method:\n";
+			cout << "1. equipment\n";
+			cout << "2. consumable\n";
+			cin >> jamal;
+			system("cls");
 			cout << "1. Sentinel Search\n";
 			cout << "2. Binary Search\n";
 			cin >> optionSearch;
@@ -72,13 +77,28 @@ int main() {
 			cin >> targetID;
 
 			bool found = false;
-			if (optionSearch == 1) {
-				found = eqp1.SearchItem(targetID, location);
-				if (found) {
-					cout << "\033[32mItem found at position: " << location << "\033[0m\n";
+			if (jamal == 1) {
+				if (optionSearch == 1) {
+					found = eqp1.SearchItem(targetID, location);
+					if (found) {
+						cout << "\033[32mItem found at position: " << location << "\033[0m\n";
+						eqp1.printSingleEquipment(targetID);
+					}
+					else {
+						cout << "\033[31mItem not found\033[0m\n";
+					}
 				}
-				else {
-					cout << "\033[31mItem not found\033[0m\n";
+			}
+			else if (jamal == 2) {
+				if (optionSearch == 1) {
+					found = eqp1.SearchItem(targetID, location);
+					if (found) {
+						cout << "\033[32mItem found at position: " << location << "\033[0m\n";
+						eqp1.printSingleConsumable(targetID);
+					}
+					else {
+						cout << "\033[31mItem not found\033[0m\n";
+					}
 				}
 			}
 			break;

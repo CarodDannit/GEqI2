@@ -16,6 +16,7 @@ using namespace std;
 
 //mirafet
 //suka makan ape?
+//asam pedas
 
 int main() {
 	cout << "\033[31m||===== GEqI - Gym Equipment Inventory System =====||\033[0m\n";

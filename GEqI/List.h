@@ -23,13 +23,14 @@ public:
 	void AddToFront();
 	void AddMaintenance(List<Equipment>& equipmentList);
 	void DeleteFront();
-	//ammar buat binary, sentinel
+	//ammar (search) : binary, sentinel
 	bool SearchItem(int, int&);
 	void printEquipment();
 	void printConsumable();
 	void printMaintenance();
 	int NumberOfItem();
-	//function sorting based on id (ascending or decending) ni amira
+	//function sorting based on id (ascending or decending) : amira
+	void sortID(bool asc);
 };
 
 #endif
@@ -194,6 +195,43 @@ template <class T>
 int List<T>::NumberOfItem() {
 	return numItem;
 }
+
+template <class T>
+void List<T>::sortID(bool asc) {
+	if (pHead == nullptr || pHead->link == nullptr) {
+		return; 
+	}
+
+	for (Node* pStart = pHead; pStart != nullptr; pStart = pStart->link) {
+		Node* pSelect = pStart;
+
+		for (Node* pNext = pStart->link; pNext != nullptr; pNext = pNext->link) {
+			if (asc) {
+				// ascending order
+				if (pNext->data.getID() < pSelect->data.getID()) {
+					pSelect = pNext;
+				}
+			}
+			else {
+				// descending order
+				if (pNext->data.getID() > pSelect->data.getID()) {
+					pSelect = pNext;
+				}
+			}
+		}
+
+		
+		if (pSelect != pStart) {
+			T temp = pStart->data;
+			pStart->data = pSelect->data;
+			pSelect->data = temp;
+		}
+	}
+
+	cout << "List sorted by ID "
+		<< (asc ? "(Ascending)" : "(Descending)") << endl;
+}
+
 	
 
 

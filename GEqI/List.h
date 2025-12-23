@@ -1,6 +1,7 @@
 #ifndef LIST_H
 #define LIST_H
 class Equipment;
+class Consumable;
 
 template <class T>
 class List {
@@ -28,7 +29,7 @@ public:
 	void printEquipment();
 	void printSingleEquipment(int targetID);//idk how,but it works. might not even working. put your trust in lord
 	void printConsumable();
-	void printSingleConsumable(int targetID);//same thing.just put your trust in lord
+	void printSingleConsumable(int targetID);//same thing.but it does not work
 	void printMaintenance();
 	int NumberOfItem();
 	//function sorting based on id (ascending or decending) ni amira

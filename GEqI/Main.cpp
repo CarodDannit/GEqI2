@@ -7,6 +7,7 @@ using namespace std;
 #include "Equipment.h"
 #include "Consumable.h"
 #include "Maintenance.h"
+#include "SampleData.h"
 
 
 int main() {
@@ -17,6 +18,7 @@ int main() {
 	List<Consumable> cnm1;
 	List<Maintenance> mnc1;
 	int optionMenu, optionAdd, optionDisplay;
+	insertSampleData(eqp1, cnm1);
 
 	do {
 

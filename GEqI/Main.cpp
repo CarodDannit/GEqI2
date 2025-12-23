@@ -31,6 +31,7 @@ int main() {
 
 		cout << "1:display\n2:add\n3:delete\n4:sort\n5:search\n6:maintenance\n7:exit\n";
 		cout << "option : ";
+		cin.clear();
 		cin >> optionMenu;
 		system("cls");
 		switch (optionMenu) {

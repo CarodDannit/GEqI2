@@ -9,13 +9,14 @@ using namespace std;
 #include "Maintenance.h"
 
 //hellobhjyuvt687yu
-//ma ARIFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+//ma arif
 //a
-//gege hao shuai
-
-
-
-
+//
+//imran
+// yo
+// LOREM
+//HI ARIF
+//HI GUys
 
 int main() {
 	cout << "\033[31m||===== GEqI - Gym Equipment Inventory System =====||\033[0m\n";

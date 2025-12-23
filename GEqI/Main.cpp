@@ -13,7 +13,7 @@ using namespace std;
 //a
 
 // AHMAD
-//esok ada kelas CS
+//esok ada kelas OOP
 
 
 

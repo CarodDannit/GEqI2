@@ -201,7 +201,7 @@ template <class T>
 void List<T>::sortID(bool asc) {
 	if (pHead == nullptr || pHead->link == nullptr) {
 		return; 
-	}
+	} // if the list is empty/only 1 item,no need to sort
 
 	for (Node* pStart = pHead; pStart != nullptr; pStart = pStart->link) {
 		Node* pSelect = pStart;

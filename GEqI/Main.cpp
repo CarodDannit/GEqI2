@@ -25,14 +25,12 @@ int main() {
 	List<Equipment> eqp1;
 	List<Consumable> cnm1;
 	List<Maintenance> mnc1;
-	int optionMenu, optionAdd, optionDisplay;
-	bool asc;
+	int optionMenu, optionAdd, optionDisplay, asc;
 
 	do {
 
 		cout << "1:display\n2:add\n3:delete\n4:sort\n5:search\n6:maintenance\n7:exit\n";
 		cout << "option : ";
-		cin.clear();
 		cin >> optionMenu;
 		system("cls");
 		switch (optionMenu) {

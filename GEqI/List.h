@@ -208,6 +208,28 @@ void List<T>::printConsumable() {
 }
 
 template <class T>
+void List<T>::printSingleConsumable(int targetID) {
+	pCurr = pHead;
+	cout << "\033[31m+----------------------------------------------------------+\033[0m\n";
+	cout << "\033[31m| "
+		<< left << setw(6) << "ID" << "| "
+		<< setw(15) << "NAME" << "| "
+		<< setw(15) << "QUANTITY" << "| "
+		<< setw(15) << "UNIT PRICE RM"
+		<< "|\033[0m\n";
+	cout << "\033[31m+----------------------------------------------------------+\033[0m\n";
+		cout << "| "
+			<< left << setw(6) << pCurr->data.getID() << "| "
+			<< setw(15) << pCurr->data.getName() << "| "
+			<< setw(15) << pCurr->data.getQuantity() << "| "
+			<< setw(15) << pCurr->data.getUnitPrice()
+			<< "|\n";
+		pCurr = pCurr->link;
+	
+	cout << endl;
+}
+
+template <class T>
 void List<T>::printMaintenance() {
 	pCurr = pHead;
 	cout << "\033[31m+----------------------------------------------------------------------------------------+\033[0m\n";

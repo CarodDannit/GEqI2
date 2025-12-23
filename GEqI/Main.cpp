@@ -66,7 +66,7 @@ int main() {
 			cin >> optionSearch;//APE NIIIIIIIIIIIIIIII
 			system("cls");//APEKAHHHHHHHHHHHHHHHHHHHHHH
 
-			int targetID, location;
+			int targetID, location;//sebenarnya salah ni,tapi boleh run
 			cout << "Enter ID to search: ";
 			cin >> targetID;
 

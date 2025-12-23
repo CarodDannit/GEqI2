@@ -206,18 +206,18 @@ void List<T>::sortID(bool asc) {
 	for (Node* pStart = pHead; pStart != nullptr; pStart = pStart->link) {
 		Node* pSelect = pStart;
 
-		for (Node* pNext = pStart->link; pNext != nullptr; pNext = pNext->link) {
+		for (Node* pNext = pStart->link; pNext != nullptr; pNext = pNext->link) { //compare ID to find the best candidate
 			if (asc) {
 				// ascending order
 				if (pNext->data.getID() < pSelect->data.getID()) {
 					pSelect = pNext;
-				}
+				} //if ascending,look for smaller ID
 			}
 			else {
 				// descending order
 				if (pNext->data.getID() > pSelect->data.getID()) {
 					pSelect = pNext;
-				}
+				} //if descending,look for a bigger ID
 			}
 		}
 
@@ -226,12 +226,12 @@ void List<T>::sortID(bool asc) {
 			T temp = pStart->data;
 			pStart->data = pSelect->data;
 			pSelect->data = temp;
-		}
+		} //if it found better node,swap the data
 	}
 
 	cout << "List sorted by ID "
 		<< (asc ? "(Ascending)" : "(Descending)") << endl;
-}
+} //pstart moves to the next node,until the list is fully sorted
 
 	
 

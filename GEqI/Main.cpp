@@ -7,6 +7,7 @@ using namespace std;
 #include "Equipment.h"
 #include "Consumable.h"
 #include "Maintenance.h"
+#include "SampleData.h"
 
 //AHI AHMAD
 //Genesis : 67
@@ -20,8 +21,8 @@ int main() {
 	List<Equipment> eqp1;
 	List<Consumable> cnm1;
 	List<Maintenance> mnc1;
-	int optionMenu, optionAdd, optionDisplay,optionSearch;
-
+	int optionMenu, optionAdd, optionDisplay,optionSearch, optionMnc;
+	insertSampleData(eqp1, cnm1);
 	do {
 
 		cout << "1:display\n2:add\n3:delete\n4:sort\n5:search\n6:maintenance\n7:exit\n";
@@ -36,8 +37,8 @@ int main() {
 			cin >> optionDisplay;
 			system("cls");
 
-			if (optionDisplay == 1) eqp1.printEquipment();
-			else if (optionDisplay == 2) cnm1.printConsumable();
+			if (optionDisplay == 1) eqp1.printList();
+			else if (optionDisplay == 2) cnm1.printList();
 			break;
 
 		case 2: //add item equipment and consumable
@@ -99,7 +100,6 @@ int main() {
 		}
 
 		case 6: //maintenance.. can add maintenance and maybe update status?
-			int optionMnc;
 			cout << "\033[32mMaintenance\033[0m" << endl;
 			cout << "1:display\n2:add\n3:update" << endl;
 			cout << "option : ";

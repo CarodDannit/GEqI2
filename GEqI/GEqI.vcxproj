@@ -133,6 +133,7 @@
     <ClInclude Include="Item.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="Maintenance.h" />
+    <ClInclude Include="SampleData.h" />
     <ClInclude Include="Sort.h" />
   </ItemGroup>
   <ItemGroup>

@@ -152,6 +152,7 @@ void List<T>::printList() { // unified method to display a list
 template <class T>
 void List<T>::printSingle() {
 	// ?? idk
+	// try looking for ur item first, then printListItem() it. Go marr
 	pCurr = pHead;
 	pCurr->data.printListLabel();
 	pCurr->data.printListItem();
@@ -160,30 +161,30 @@ void List<T>::printSingle() {
 	cout << endl;
 }
 
-template <class T>
-void List<T>::printEquipment() {
-	pCurr = pHead;
-	cout << "\033[31m+---------------------------------------------------------------------------+\033[0m\n";
-	cout << "\033[31m| "
-		<< left << setw(6) << "ID" << "| "
-		<< setw(15) << "NAME" << "| "
-		<< setw(15) << "CATEGORY" << "| "
-		<< setw(15) << "STATUS" << "| "
-		<< setw(15) << "CONDITION"
-		<< "|\033[0m\n";
-	cout << "\033[31m+---------------------------------------------------------------------------+\033[0m\n";
-	while (pCurr != 0) {
-		cout << "| "
-			<< left << setw(6) << pCurr->data.getID() << "| "
-			<< setw(15) << pCurr->data.getName() << "| "
-			<< setw(15) << pCurr->data.getCategory() << "| "
-			<< setw(15) << pCurr->data.getStatus() << "| "
-			<< setw(15) << pCurr->data.getCondition()
-			<< "|\n";
-		pCurr = pCurr->link;
-	}
-	cout << endl;
-}
+//template <class T>
+//void List<T>::printEquipment() {
+//	pCurr = pHead;
+//	cout << "\033[31m+---------------------------------------------------------------------------+\033[0m\n";
+//	cout << "\033[31m| "
+//		<< left << setw(6) << "ID" << "| "
+//		<< setw(15) << "NAME" << "| "
+//		<< setw(15) << "CATEGORY" << "| "
+//		<< setw(15) << "STATUS" << "| "
+//		<< setw(15) << "CONDITION"
+//		<< "|\033[0m\n";
+//	cout << "\033[31m+---------------------------------------------------------------------------+\033[0m\n";
+//	while (pCurr != 0) {
+//		cout << "| "
+//			<< left << setw(6) << pCurr->data.getID() << "| "
+//			<< setw(15) << pCurr->data.getName() << "| "
+//			<< setw(15) << pCurr->data.getCategory() << "| "
+//			<< setw(15) << pCurr->data.getStatus() << "| "
+//			<< setw(15) << pCurr->data.getCondition()
+//			<< "|\n";
+//		pCurr = pCurr->link;
+//	}
+//	cout << endl;
+//}
 
 template <class T>
 void List<T>::printSingleEquipment(int targetID) {
@@ -209,28 +210,28 @@ void List<T>::printSingleEquipment(int targetID) {
 	cout << endl;
 }
 
-template <class T>
-void List<T>::printConsumable() {
-	pCurr = pHead;
-	cout << "\033[31m+----------------------------------------------------------+\033[0m\n";
-	cout << "\033[31m| "
-		<< left << setw(6) << "ID" << "| "
-		<< setw(15) << "NAME" << "| "
-		<< setw(15) << "QUANTITY" << "| "
-		<< setw(15) << "UNIT PRICE RM"
-		<< "|\033[0m\n";
-	cout << "\033[31m+----------------------------------------------------------+\033[0m\n";
-	while (pCurr != 0) {
-		cout << "| "
-			<< left << setw(6) << pCurr->data.getID() << "| "
-			<< setw(15) << pCurr->data.getName() << "| "
-			<< setw(15) << pCurr->data.getQuantity() << "| "
-			<< setw(15) << pCurr->data.getUnitPrice()
-			<< "|\n";
-		pCurr = pCurr->link;
-	}
-	cout << endl;
-}
+//template <class T>
+//void List<T>::printConsumable() {
+//	pCurr = pHead;
+//	cout << "\033[31m+----------------------------------------------------------+\033[0m\n";
+//	cout << "\033[31m| "
+//		<< left << setw(6) << "ID" << "| "
+//		<< setw(15) << "NAME" << "| "
+//		<< setw(15) << "QUANTITY" << "| "
+//		<< setw(15) << "UNIT PRICE RM"
+//		<< "|\033[0m\n";
+//	cout << "\033[31m+----------------------------------------------------------+\033[0m\n";
+//	while (pCurr != 0) {
+//		cout << "| "
+//			<< left << setw(6) << pCurr->data.getID() << "| "
+//			<< setw(15) << pCurr->data.getName() << "| "
+//			<< setw(15) << pCurr->data.getQuantity() << "| "
+//			<< setw(15) << pCurr->data.getUnitPrice()
+//			<< "|\n";
+//		pCurr = pCurr->link;
+//	}
+//	cout << endl;
+//}
 
 template <class T>
 void List<T>::printSingleConsumable(int targetID) {

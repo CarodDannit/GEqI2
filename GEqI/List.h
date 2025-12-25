@@ -26,6 +26,8 @@ public:
 	void DeleteFront();
 	//binary sentinel
 	bool SearchItem(int, int&);
+	void printList();
+	void printSingle();
 	void printEquipment();
 	void printSingleEquipment(int targetID);//idk how,but it works. might not even working. put your trust in lord
 	void printConsumable();
@@ -134,6 +136,28 @@ bool List<T>::SearchItem(int targetID, int& loc) {
 	delete sentinel;
 
 	return found;
+}
+
+template <class T>
+void List<T>::printList() { // unified method to display a list
+	pCurr = pHead;
+	pCurr->data.printListLabel();
+	while (pCurr != 0) {
+		pCurr->data.printListItem();
+		pCurr = pCurr->link;
+	}
+	cout << endl;
+}
+
+template <class T>
+void List<T>::printSingle() {
+	// ?? idk
+	pCurr = pHead;
+	pCurr->data.printListLabel();
+	pCurr->data.printListItem();
+	pCurr = pCurr->link;
+
+	cout << endl;
 }
 
 template <class T>

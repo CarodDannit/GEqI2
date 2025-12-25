@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <iomanip>
 using namespace std;
 #include "Item.h"
 #include "Equipment.h"
@@ -32,4 +33,26 @@ string Equipment::getStatus() {
 
 string Equipment::getCondition() {
 	return condition;
+}
+
+void Equipment::printListLabel() { // The label when displaying an Equipment list
+	cout << "\033[31m+---------------------------------------------------------------------------+\033[0m\n";
+	cout << "\033[31m| "
+		<< left << setw(6) << "ID" << "| "
+		<< setw(15) << "NAME" << "| "
+		<< setw(15) << "CATEGORY" << "| "
+		<< setw(15) << "STATUS" << "| "
+		<< setw(15) << "CONDITION"
+		<< "|\033[0m\n";
+	cout << "\033[31m+---------------------------------------------------------------------------+\033[0m\n";
+}
+
+void Equipment::printListItem() {
+	cout << "| "
+		<< left << setw(6) << getID() << "| "
+		<< setw(15) << getName() << "| "
+		<< setw(15) << getCategory() << "| "
+		<< setw(15) << getStatus() << "| "
+		<< setw(15) << getCondition()
+		<< "|\n";
 }

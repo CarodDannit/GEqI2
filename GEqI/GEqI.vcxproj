@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClInclude Include="Consumable.h" />
     <ClInclude Include="Equipment.h" />
+    <ClInclude Include="IListable.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="Maintenance.h" />

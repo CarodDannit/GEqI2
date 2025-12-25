@@ -73,3 +73,27 @@ string Maintenance::getDate() {
 string Maintenance::getStatus() {
 	return status;
 }
+
+void Maintenance::printListLabel() {
+	cout << "\033[31m+----------------------------------------------------------------------------------------+\033[0m\n";
+	cout << "\033[31m| "
+		<< left << setw(6) << "ID" << "| "
+		<< setw(6) << "EQ ID" << "| "
+		<< setw(20) << "ISSUE" << "| "
+		<< setw(15) << "COST" << "| "
+		<< setw(15) << "DATE" << "| "
+		<< setw(15) << "STATUS"
+		<< "|\033[0m\n";
+	cout << "\033[31m+----------------------------------------------------------------------------------------+\033[0m\n";
+}
+
+void Maintenance::printListItem() {
+	cout << "| "
+		<< left << setw(6) << getID() << "| "
+		<< setw(6) << getEquipID() << "| "
+		<< setw(20) << getIssue() << "| "
+		<< setw(15) << getCost() << "| "
+		<< setw(15) << getDate() << "| "
+		<< setw(15) << getStatus() << "| "
+		<< "|\n";
+}

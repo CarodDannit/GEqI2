@@ -9,6 +9,15 @@ using namespace std;
 #include "Maintenance.h"
 #include "SampleData.h"
 
+//hellobhjyuvt687yu
+//ma
+//a
+//
+//alif ba ta
+//arif yang arif
+//mirafet
+//suka makan ape?
+//asam pedas
 //AHI AHMAD
 //Genesis : 67
 //Al-Kahf 1-10
@@ -30,7 +39,7 @@ int main() {
 		cin >> optionMenu;
 		system("cls");
 		switch (optionMenu) {
-		case 1: //display equipment and consumable
+		case 1: //display equipment and consumable...
 			cout << "\033[32mdisplay item\033[0m" << endl;
 			cout << "1:equipment\n2:consumable" << endl;
 			cout << "option : ";
@@ -98,6 +107,38 @@ int main() {
 			}
 			break;
 		}
+
+		case 4: //selection sorting
+			cout << "\033[32mdisplay item\033[0m" << endl;
+			cout << "1:equipment\n2:consumable" << endl;
+			cin >> optionDisplay;
+			system("cls");
+
+
+			cout << "1. Ascending\n";
+			cout << "2. Descending\n";
+			cout << "Choose order: ";
+			cin >> asc;
+			system("cls");
+
+			if (optionDisplay == 1) { // EQUIPMENT
+				if (asc == 1)
+					eqp1.sortID(true);
+				else
+					eqp1.sortID(false);
+
+				eqp1.printEquipment(); // display after sorting
+			}
+			else if (optionDisplay == 2) { // CONSUMABLE
+				if (asc == 1)
+					cnm1.sortID(true);
+				else
+					cnm1.sortID(false);
+
+				cnm1.printConsumable(); // display after sorting
+			}
+			break;
+
 
 		case 6: //maintenance.. can add maintenance and maybe update status?
 			cout << "\033[32mMaintenance\033[0m" << endl;

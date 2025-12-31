@@ -24,6 +24,7 @@ public:
 	void AddToFront();
 	void AddMaintenance(List<Equipment>& equipmentList);
 	void DeleteFront();
+	//ammar (search) : binary, sentinel
 	//binary sentinel
 	bool SearchItem(int, int&);
 	void printList();
@@ -34,7 +35,9 @@ public:
 	void printSingleConsumable(int targetID);//same thing.but it does not work
 	void printMaintenance();
 	int NumberOfItem();
-	//function sorting based on id (ascending or decending) ni amira
+	//function sorting based on id (ascending or decending) : amira
+	void sortID(bool asc); //loollolololololol
+	//lololololol
 };
 
 #endif
@@ -287,6 +290,43 @@ template <class T>
 int List<T>::NumberOfItem() {
 	return numItem;
 }
+
+template <class T>
+void List<T>::sortID(bool asc) {
+	if (pHead == nullptr || pHead->link == nullptr) {
+		return; 
+	} // if the list is empty/only 1 item,no need to sort
+
+	for (Node* pStart = pHead; pStart != nullptr; pStart = pStart->link) {
+		Node* pSelect = pStart;
+
+		for (Node* pNext = pStart->link; pNext != nullptr; pNext = pNext->link) { //compare ID to find the best candidate
+			if (asc) {
+				// ascending order
+				if (pNext->data.getID() < pSelect->data.getID()) {
+					pSelect = pNext;
+				} //if ascending,look for smaller ID
+			}
+			else {
+				// descending order
+				if (pNext->data.getID() > pSelect->data.getID()) {
+					pSelect = pNext;
+				} //if descending,look for a bigger ID
+			}
+		}
+
+		
+		if (pSelect != pStart) {
+			T temp = pStart->data;
+			pStart->data = pSelect->data;
+			pSelect->data = temp;
+		} //if it found better node,swap the data
+	}
+
+	cout << "List sorted by ID "
+		<< (asc ? "(Ascending)" : "(Descending)") << endl;
+} //pstart moves to the next node,until the list is fully sorted
+
 	
 
 

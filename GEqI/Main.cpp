@@ -39,7 +39,7 @@ int main() {
 		cin >> optionMenu;
 		system("cls");
 		switch (optionMenu) {
-		case 1: //display equipment and consumable
+		case 1: //display equipment and consumable...
 			cout << "\033[32mdisplay item\033[0m" << endl;
 			cout << "1:equipment\n2:consumable" << endl;
 			cout << "option : ";

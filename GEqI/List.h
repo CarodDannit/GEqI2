@@ -26,7 +26,9 @@ public:
 	void DeleteFront();
 	//ammar (search) : binary, sentinel
 	//binary sentinel
-	bool SearchItem(int, int&);
+	bool SearchItems(int, int&);
+	bool SearchItemb(int, int&);
+
 	void printList();
 	void printSingle();
 	void printEquipment();
@@ -103,7 +105,7 @@ void List<T>::DeleteFront() {
 }
 
 template <class T>
-bool List<T>::SearchItem(int targetID, int& loc) {
+bool List<T>::SearchItems(int targetID, int& loc) {
 	if (numItem == 0) {
 		cout << "There is no item in the list" << endl;
 		return false;
@@ -191,7 +193,7 @@ void List<T>::printSingle() {
 
 template <class T>
 void List<T>::printSingleEquipment(int targetID) {
-	pCurr = pHead;
+	
 	cout << "\033[31m+---------------------------------------------------------------------------+\033[0m\n";
 	cout << "\033[31m| "
 		<< left << setw(6) << "ID" << "| "
@@ -238,7 +240,7 @@ void List<T>::printSingleEquipment(int targetID) {
 
 template <class T>
 void List<T>::printSingleConsumable(int targetID) {
-	pCurr = pHead;
+	
 	cout << "\033[31m+----------------------------------------------------------+\033[0m\n";
 	cout << "\033[31m| "
 		<< left << setw(6) << "ID" << "| "

@@ -8,6 +8,7 @@ using namespace std;
 #include "Consumable.h"
 #include "Maintenance.h"
 #include "SampleData.h"
+#include "Secret.h" 
 
 //hellobhjyuvt687yu
 //ma
@@ -62,9 +63,9 @@ int main() {
 			break;
 
 		case 3: //delete equipment and maybe consumable
-			eqp1.DeleteFront(); 
+			eqp1.DeleteFront();
 			break;
-		
+
 		case 5: {
 			int typeChoice;
 			cout << "\033[32mSelect Item Type:\033[0m\n";
@@ -85,8 +86,7 @@ int main() {
 			cin >> targetID;
 
 			bool found = false;
-
-			// --- EQUIPMENT ---
+			// --- equoipment ---
 			if (typeChoice == 1) {
 				if (optionSearch == 1) {
 					found = eqp1.SearchItems(targetID, location); // Sentinel
@@ -104,7 +104,7 @@ int main() {
 					cout << "\033[31mItem not found\033[0m\n";
 				}
 			}
-			// --- CONSUMABLE ---
+			// --- consumable ---
 			else if (typeChoice == 2) {
 				if (optionSearch == 1) {
 					found = cnm1.SearchItems(targetID, location); // Sentinel
@@ -167,6 +167,10 @@ int main() {
 			if (optionMnc == 1)  mnc1.printMaintenance();
 			else if (optionMnc == 2) mnc1.AddMaintenance(eqp1);
 			else if (optionMnc == 3) {}; //don't know to add what
+			break;
+
+		case 99:
+			runAssemblySecret(); // <--- Just one line now
 			break;
 		case 7: system("exit");
 		default: return false;

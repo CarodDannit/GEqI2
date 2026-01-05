@@ -30,7 +30,7 @@ void Maintenance::inputData(List<Equipment> equipmentList) {
 	cout << "equip id : ";
 	cin >> n;
 	
-	if (equipmentList.SearchItem(n, loc)) {
+	if (equipmentList.SearchItems(n, loc)) {
 		cout << "Equipment found!" << endl;
 		equip.setID(n);
 	}

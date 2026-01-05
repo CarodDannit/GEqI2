@@ -65,46 +65,63 @@ int main() {
 			eqp1.DeleteFront(); 
 			break;
 		
-		case 5: {//ada slaveowner dipaksa,tahun 2001 esok mungkin selasa,hari esok adalah sebelum hari lusa
-			int jamal;//HAHAHAHHAHA
-			cout << "Pick search method:\n";//APPA NI WOIIIIII
-			cout << "1. equipment\n";//AKU XNAKKKKK
-			cout << "2. consumable\n";//AKU XNAKKKKKKKKKKKKKKKKKKKKKKKK
-			cin >> jamal;//JANGANNNNNNN
-			system("cls");//AGHHHHHHHHHHHHHHHHHHHHHHHH
-			cout << "1. Sentinel Search\n";//TAKOTTTTTT
-			cout << "2. Binary Search\n";//XBOLEHGHHHHHH
-			cin >> optionSearch;//APE NIIIIIIIIIIIIIIII
-			system("cls");//APEKAHHHHHHHHHHHHHHHHHHHHHH
+		case 5: {
+			int typeChoice;
+			cout << "\033[32mSelect Item Type:\033[0m\n";
+			cout << "1. Equipment\n";
+			cout << "2. Consumable\n";
+			cout << "Option: ";
+			cin >> typeChoice;
+			system("cls");
 
-			int targetID, location;//sebenarnya salah ni,tapi boleh run
+			cout << "\033[32mSelect Search Method:\033[0m\n";
+			cout << "1. Sentinel Search (Linear)\n";
+			cout << "2. Binary Search (Will auto-sort list)\n";
+			cin >> optionSearch;
+			system("cls");
+
+			int targetID, location;
 			cout << "Enter ID to search: ";
 			cin >> targetID;
 
 			bool found = false;
-			if (jamal == 1) {
+
+			// --- EQUIPMENT ---
+			if (typeChoice == 1) {
 				if (optionSearch == 1) {
-					found = eqp1.SearchItems(targetID, location);
-					if (found) {
-						cout << "\033[32mItem found at position: " << location << "\033[0m\n";
-						eqp1.printSingleEquipment(targetID);
-					}
-					else {
-						cout << "\033[31mItem not found\033[0m\n";
-					}
-			}
-			}else if (jamal == 2) {
-				if (optionSearch == 1) {
-					found = cnm1.SearchItems(targetID, location);
-					if (found) {
-						cout << "\033[32mItem found at position: " << location << "\033[0m\n";
-						cnm1.printSingleConsumable(targetID);
-					}
-					else {
-						cout << "\033[31mItem not found\033[0m\n";
-					}
+					found = eqp1.SearchItems(targetID, location); // Sentinel
+				}
+				else if (optionSearch == 2) {
+					found = eqp1.SearchItemb(targetID, location); // Binary
+				}
+
+				if (found) {
+					cout << "\033[32mItem found at position: " << location << "\033[0m\n";
+					// Note: Because we updated pCurr inside SearchItemb, this might work now:
+					eqp1.printSingleEquipment(targetID);
+				}
+				else {
+					cout << "\033[31mItem not found\033[0m\n";
 				}
 			}
+			// --- CONSUMABLE ---
+			else if (typeChoice == 2) {
+				if (optionSearch == 1) {
+					found = cnm1.SearchItems(targetID, location); // Sentinel
+				}
+				else if (optionSearch == 2) {
+					found = cnm1.SearchItemb(targetID, location); // Binary
+				}
+
+				if (found) {
+					cout << "\033[32mItem found at position: " << location << "\033[0m\n";
+					cnm1.printSingleConsumable(targetID);
+				}
+				else {
+					cout << "\033[31mItem not found\033[0m\n";
+				}
+			}
+			system("pause");
 			break;
 		}
 

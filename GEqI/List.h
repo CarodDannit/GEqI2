@@ -143,6 +143,40 @@ bool List<T>::SearchItems(int targetID, int& loc) {
 	return found;
 }
 
+template<class T>
+bool List<T>::SearchItemb(int targetID, int& loc) {
+	sortID(true);//force sort
+	if (numItem == 0) {
+		return false;
+	}
+
+	int left = 0;
+	int right = numItem - 1;
+
+//staruto
+	while (left <= right) {
+		int mid = left + (right - left) / 2;
+		Node* pMid = pHead;
+			for (int i = 0; i < mid; i++) {
+				pMid = pMid->link;
+			}
+		if (pMid->data.getID() == targetID) {
+			loc = mid;//found
+			pCurr = pMid;
+			return true;
+		}
+		if (pMid->data.getID() < targetID) {//great ignore left
+			left = mid + 1;
+		}
+		else//small,ignore rige
+			right = mid - 1;
+	}
+
+		cout << "There is no item in the list" << endl;
+		return false;
+
+}
+
 template <class T>
 void List<T>::printList() { // unified method to display a list
 	pCurr = pHead;

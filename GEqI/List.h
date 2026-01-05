@@ -171,8 +171,6 @@ bool List<T>::SearchItemb(int targetID, int& loc) {
 		else//small,ignore rige
 			right = mid - 1;
 	}
-
-		cout << "There is no item in the list" << endl;
 		return false;
 
 }

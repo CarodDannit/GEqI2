@@ -145,7 +145,7 @@ bool List<T>::SearchItems(int targetID, int& loc) {
 
 template<class T>
 bool List<T>::SearchItemb(int targetID, int& loc) {
-	sortID(true);//force sort
+	sortID(true);//force sort asc
 	if (numItem == 0) {
 		return false;
 	}

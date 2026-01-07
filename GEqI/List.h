@@ -229,8 +229,7 @@ void List<T>::sortID(bool asc) {
 		}
 	}
 
-	cout << "List sorted by ID "
-		<< (asc ? "(Ascending)" : "(Descending)") << endl;
+	cout << "List sorted by ID " << (asc ? "(Ascending)" : "(Descending)") << endl;
 }
 
 	

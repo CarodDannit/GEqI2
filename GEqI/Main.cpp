@@ -9,19 +9,7 @@ using namespace std;
 #include "Maintenance.h"
 #include "SampleData.h"
 
-//hellobhjyuvt687yu
-//ma
-//a
-//
-//alif ba ta
-//arif yang arif
-//mirafet
-//suka makan ape?
-//asam pedas
-//AHI AHMAD
-//Genesis : 67
-//Al-Kahf 1-10
-//hantu
+
 
 int main() {
 	cout << "\033[31m||===== GEqI - Gym Equipment Inventory System =====||\033[0m\n";
@@ -66,21 +54,27 @@ int main() {
 			break;
 		
 		case 5: {
+			int targetID, location;
 			cout << "\033[32msearch item\033[0m" << endl;
 			cout << "1. equipment\n";
 			cout << "2. consumable\n";
 			cin >> optionSearch;
 			system("cls");
+			if (optionSearch > 2) break;
+			
+
 			cout << "\033[32mPick search method\033[0m:\n";
 			cout << "1. Sentinel Search\n";
 			cout << "2. Binary Search\n";
 			cin >> methodSearch;
 			system("cls");
+			if (methodSearch > 2) break;
+			
 
-			int targetID, location;//sebenarnya salah ni,tapi boleh run
 			cout << "Enter ID to search: ";
 			cin >> targetID;
 
+			
 			bool found = false;
 			if (optionSearch == 1) {
 				if (methodSearch == 1) {
@@ -114,6 +108,7 @@ int main() {
 			cout << "1:equipment\n2:consumable" << endl;
 			cin >> optionDisplay;
 			system("cls");
+			if (optionDisplay > 2) break;
 
 
 			cout << "1. Ascending\n";
@@ -121,21 +116,16 @@ int main() {
 			cout << "Choose order: ";
 			cin >> asc;
 			system("cls");
+			if (asc > 2) break;
 
 			if (optionDisplay == 1) { // EQUIPMENT
-				if (asc == 1)
-					eqp1.sortID(true);
-				else
-					eqp1.sortID(false);
-
+				if (asc == 1) eqp1.sortID(true);
+				else if(asc == 2) eqp1.sortID(false);
 				eqp1.printList(); // display after sorting
 			}
 			else if (optionDisplay == 2) { // CONSUMABLE
-				if (asc == 1)
-					cnm1.sortID(true);
-				else
-					cnm1.sortID(false);
-
+				if (asc == 1) cnm1.sortID(true);				
+				else cnm1.sortID(false);
 				cnm1.printList(); // display after sorting
 			}
 			break;

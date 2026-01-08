@@ -16,7 +16,7 @@ public:
 	Maintenance();
 	~Maintenance();
 
-	void inputData(List<Equipment>);
+	void inputData(List<Equipment>&);
 	int getNextID();
 
 	int getID();

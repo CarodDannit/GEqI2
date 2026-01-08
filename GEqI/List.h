@@ -102,6 +102,9 @@ void List<T>::DeleteFront() {
 
 }
 
+
+
+
 template <class T>
 bool List<T>::SearchItem(int targetID, int& loc) {
 	if (numItem == 0) {
@@ -132,11 +135,11 @@ bool List<T>::SearchItem(int targetID, int& loc) {
 		loc++;
 	}
 
-	// Remove sentinel
-	if (pLast) pLast->link = nullptr;
-	else pHead = nullptr;
-
 	bool found = (loc < numItem);
+
+	// Remove sentinel
+	if(plast) pLast->link = nullptr;
+	//else pHead = nullptr;
 	delete sentinel;
 
 	return found;

@@ -22,7 +22,7 @@ int Maintenance::getNextID() {
 	return count++;
 }
 
-void Maintenance::inputData(List<Equipment> equipmentList) {
+void Maintenance::inputData(List<Equipment>& equipmentList) {
 	id = getNextID();
 	int n;
 	int loc;

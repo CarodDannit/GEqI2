@@ -77,27 +77,23 @@ int main() {
 			
 			bool found = false;
 			if (optionSearch == 1) {
-				if (methodSearch == 1) {
-					found = eqp1.SearchItem(targetID, location);
-					if (found) {
-						cout << "\033[32mItem found at position: " << location << "\033[0m\n";
-						eqp1.printSingle();
-					}
-					else {
-						cout << "\033[31mItem not found\033[0m\n";
-					}
+				found = eqp1.SearchItem(targetID, location, methodSearch);
+				if (found) {
+					cout << "\033[32mEquipment found at position: " << location << "\033[0m\n";
+					eqp1.printSingle();
+				}
+				else {
+					cout << "\033[31mEquipment not found\033[0m\n";
 				}
 			}
 			else if (optionSearch == 2) {
-				if (methodSearch == 1) {
-					found = eqp1.SearchItem(targetID, location);
-					if (found) {
-						cout << "\033[32mItem found at position: " << location << "\033[0m\n";
-						eqp1.printSingle();
-					}
-					else {
-						cout << "\033[31mItem not found\033[0m\n";
-					}
+				found = cnm1.SearchItem(targetID, location, methodSearch);
+				if (found) {
+					cout << "\033[32mConsumable found at position: " << location << "\033[0m\n";
+					cnm1.printSingle();
+				}
+				else {
+					cout << "\033[31mConsumable not found\033[0m\n";
 				}
 			}
 			break;

@@ -5,6 +5,7 @@ using namespace std;
 #include "List.h"
 #include "Maintenance.h"
 ////// ARIFFFFFFFFFseb gjaSDVilAWejfDFGDFGDFGDk wB,FBHSD/LG WEHTG VJKWRGKJEKJ L;JLJK HJ
+List<Equipment>* Maintenance::equipmentList;
 
 Maintenance::Maintenance() {
 	id = 0;
@@ -17,20 +18,29 @@ Maintenance::Maintenance() {
 
 Maintenance::~Maintenance(){}
 
+void Maintenance::setEquipments(List<Equipment>& eqpList) {
+	equipmentList = &eqpList;
+	cout << equipmentList << endl;
+}
+
 int Maintenance::getNextID() {
 	int static count = 0;
 	return count++;
 }
 
-void Maintenance::inputData(List<Equipment>& equipmentList) {
+void Maintenance::setID(int n) {
+	id = n;
+}
+
+void Maintenance::inputData() {
 	id = getNextID();
 	int n;
 	int loc;
 
 	cout << "equip id : ";
 	cin >> n;
-	
-	if (equipmentList.SearchItem(n, loc)) {
+	cout << equipmentList << endl;
+	if (equipmentList->SearchItem(n, loc)) {
 		cout << "Equipment found!" << endl;
 		equip.setID(n);
 	}

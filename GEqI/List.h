@@ -29,15 +29,9 @@ public:
 	bool SearchItem(int, int&);
 	void printList();
 	void printSingle();
-	//void printEquipment();
-	//void printSingleEquipment(int targetID);//idk how,but it works. might not even working. put your trust in lord
-	//void printConsumable();
-	//void printSingleConsumable(int targetID);//same thing.but it does not work
-	void printMaintenance();
 	int NumberOfItem();
 	//function sorting based on id (ascending or decending) : amira
-	void sortID(bool asc); //loollolololololol
-	//lololololol
+	void sortID(bool asc); 
 };
 
 #endif
@@ -138,8 +132,7 @@ bool List<T>::SearchItem(int targetID, int& loc) {
 	bool found = (loc < numItem);
 
 	// Remove sentinel
-	if(plast) pLast->link = nullptr;
-	//else pHead = nullptr;
+	if(pLast) pLast->link = nullptr;
 	delete sentinel;
 
 	return found;
@@ -168,103 +161,6 @@ void List<T>::printSingle() {
 	cout << endl;
 }
 
-//template <class T>
-//void List<T>::printEquipment() {
-//	pCurr = pHead;
-//	cout << "\033[31m+---------------------------------------------------------------------------+\033[0m\n";
-//	cout << "\033[31m| "
-//		<< left << setw(6) << "ID" << "| "
-//		<< setw(15) << "NAME" << "| "
-//		<< setw(15) << "CATEGORY" << "| "
-//		<< setw(15) << "STATUS" << "| "
-//		<< setw(15) << "CONDITION"
-//		<< "|\033[0m\n";
-//	cout << "\033[31m+---------------------------------------------------------------------------+\033[0m\n";
-//	while (pCurr != 0) {
-//		cout << "| "
-//			<< left << setw(6) << pCurr->data.getID() << "| "
-//			<< setw(15) << pCurr->data.getName() << "| "
-//			<< setw(15) << pCurr->data.getCategory() << "| "
-//			<< setw(15) << pCurr->data.getStatus() << "| "
-//			<< setw(15) << pCurr->data.getCondition()
-//			<< "|\n";
-//		pCurr = pCurr->link;
-//	}
-//	cout << endl;
-//}
-
-
-//template <class T>
-//void List<T>::printConsumable() {
-//	pCurr = pHead;
-//	cout << "\033[31m+----------------------------------------------------------+\033[0m\n";
-//	cout << "\033[31m| "
-//		<< left << setw(6) << "ID" << "| "
-//		<< setw(15) << "NAME" << "| "
-//		<< setw(15) << "QUANTITY" << "| "
-//		<< setw(15) << "UNIT PRICE RM"
-//		<< "|\033[0m\n";
-//	cout << "\033[31m+----------------------------------------------------------+\033[0m\n";
-//	while (pCurr != 0) {
-//		cout << "| "
-//			<< left << setw(6) << pCurr->data.getID() << "| "
-//			<< setw(15) << pCurr->data.getName() << "| "
-//			<< setw(15) << pCurr->data.getQuantity() << "| "
-//			<< setw(15) << pCurr->data.getUnitPrice()
-//			<< "|\n";
-//		pCurr = pCurr->link;
-//	}
-//	cout << endl;
-//}
-
-//template <class T>
-//void List<T>::printSingleConsumable(int targetID) {
-//	pCurr = pHead;
-//	cout << "\033[31m+----------------------------------------------------------+\033[0m\n";
-//	cout << "\033[31m| "
-//		<< left << setw(6) << "ID" << "| "
-//		<< setw(15) << "NAME" << "| "
-//		<< setw(15) << "QUANTITY" << "| "
-//		<< setw(15) << "UNIT PRICE RM"
-//		<< "|\033[0m\n";
-//	cout << "\033[31m+----------------------------------------------------------+\033[0m\n";
-//		cout << "| "
-//			<< left << setw(6) << pCurr->data.getID() << "| "
-//			<< setw(15) << pCurr->data.getName() << "| "
-//			<< setw(15) << pCurr->data.getQuantity() << "| "
-//			<< setw(15) << pCurr->data.getUnitPrice()
-//			<< "|\n";
-//		pCurr = pCurr->link;
-//	
-//	cout << endl;
-//}
-
-template <class T>
-void List<T>::printMaintenance() {
-	pCurr = pHead;
-	cout << "\033[31m+----------------------------------------------------------------------------------------+\033[0m\n";
-	cout << "\033[31m| "
-		<< left << setw(6) << "ID" << "| "
-		<< setw(6) << "EQ ID" << "| "
-		<< setw(20) << "ISSUE" << "| "
-		<< setw(15) << "COST" << "| "
-		<< setw(15) << "DATE" << "| "
-		<< setw(15) << "STATUS"
-		<< "|\033[0m\n";
-	cout << "\033[31m+----------------------------------------------------------------------------------------+\033[0m\n";
-	while (pCurr != 0) {
-		cout << "| "
-			<< left << setw(6) << pCurr->data.getID() << "| "
-			<< setw(6) << pCurr->data.getEquipID() << "| "
-			<< setw(20) << pCurr->data.getIssue() << "| "
-			<< setw(15) << pCurr->data.getCost() << "| "
-			<< setw(15) << pCurr->data.getDate() << "| "
-			<< setw(15) << pCurr->data.getStatus()
-			<< "|\n";
-		pCurr = pCurr->link;
-	} 
-	cout << endl;
-}
 
 
 template <class T>

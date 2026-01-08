@@ -30,7 +30,7 @@ int main() {
 	List<Equipment> eqp1;
 	List<Consumable> cnm1;
 	List<Maintenance> mnc1;
-	int optionMenu, optionAdd, optionDisplay,optionSearch, optionMnc, asc;
+	int optionMenu, optionAdd, optionDisplay, methodSearch, optionSearch, optionMnc, asc;
 	insertSampleData(eqp1, cnm1);
 	do {
 
@@ -65,25 +65,25 @@ int main() {
 			eqp1.DeleteFront(); 
 			break;
 		
-		case 5: {//ada slaveowner dipaksa,tahun 2001 esok mungkin selasa,hari esok adalah sebelum hari lusa
-			int jamal;//HAHAHAHHAHA
-			cout << "Pick search method:\n";//APPA NI WOIIIIII
-			cout << "1. equipment\n";//AKU XNAKKKKK
-			cout << "2. consumable\n";//AKU XNAKKKKKKKKKKKKKKKKKKKKKKKK
-			cin >> jamal;//JANGANNNNNNN
-			system("cls");//AGHHHHHHHHHHHHHHHHHHHHHHHH
-			cout << "1. Sentinel Search\n";//TAKOTTTTTT
-			cout << "2. Binary Search\n";//XBOLEHGHHHHHH
-			cin >> optionSearch;//APE NIIIIIIIIIIIIIIII
-			system("cls");//APEKAHHHHHHHHHHHHHHHHHHHHHH
+		case 5: {
+			cout << "\033[32msearch item\033[0m" << endl;
+			cout << "1. equipment\n";
+			cout << "2. consumable\n";
+			cin >> optionSearch;
+			system("cls");
+			cout << "\033[32mPick search method\033[0m:\n";
+			cout << "1. Sentinel Search\n";
+			cout << "2. Binary Search\n";
+			cin >> methodSearch;
+			system("cls");
 
 			int targetID, location;//sebenarnya salah ni,tapi boleh run
 			cout << "Enter ID to search: ";
 			cin >> targetID;
 
 			bool found = false;
-			if (jamal == 1) {
-				if (optionSearch == 1) {
+			if (optionSearch == 1) {
+				if (methodSearch == 1) {
 					found = eqp1.SearchItem(targetID, location);
 					if (found) {
 						cout << "\033[32mItem found at position: " << location << "\033[0m\n";
@@ -93,8 +93,9 @@ int main() {
 						cout << "\033[31mItem not found\033[0m\n";
 					}
 				}
-			}if (jamal == 2) {
-				if (optionSearch == 1) {
+			}
+			else if (optionSearch == 2) {
+				if (methodSearch == 1) {
 					found = eqp1.SearchItem(targetID, location);
 					if (found) {
 						cout << "\033[32mItem found at position: " << location << "\033[0m\n";

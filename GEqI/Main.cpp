@@ -30,7 +30,7 @@ int main() {
 	List<Equipment> eqp1;
 	List<Consumable> cnm1;
 	List<Maintenance> mnc1;
-	int optionMenu, optionAdd, optionDisplay,optionSearch, optionMnc;
+	int optionMenu, optionAdd, optionDisplay,optionSearch, optionMnc, asc;
 	insertSampleData(eqp1, cnm1);
 	do {
 
@@ -87,7 +87,7 @@ int main() {
 					found = eqp1.SearchItem(targetID, location);
 					if (found) {
 						cout << "\033[32mItem found at position: " << location << "\033[0m\n";
-						eqp1.printSingleEquipment(targetID);
+						eqp1.printSingle();
 					}
 					else {
 						cout << "\033[31mItem not found\033[0m\n";
@@ -98,7 +98,7 @@ int main() {
 					found = eqp1.SearchItem(targetID, location);
 					if (found) {
 						cout << "\033[32mItem found at position: " << location << "\033[0m\n";
-						eqp1.printSingleConsumable(targetID);
+						eqp1.printSingle();
 					}
 					else {
 						cout << "\033[31mItem not found\033[0m\n";
@@ -127,7 +127,7 @@ int main() {
 				else
 					eqp1.sortID(false);
 
-				eqp1.printEquipment(); // display after sorting
+				eqp1.printList(); // display after sorting
 			}
 			else if (optionDisplay == 2) { // CONSUMABLE
 				if (asc == 1)
@@ -135,7 +135,7 @@ int main() {
 				else
 					cnm1.sortID(false);
 
-				cnm1.printConsumable(); // display after sorting
+				cnm1.printList(); // display after sorting
 			}
 			break;
 

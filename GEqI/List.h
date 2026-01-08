@@ -156,10 +156,10 @@ template <class T>
 void List<T>::printSingle() {
 	// ?? idk
 	// try looking for ur item first, then printListItem() it. Go marr
-	pCurr = pHead;
+	//pCurr = pHead;
 	pCurr->data.printListLabel();
 	pCurr->data.printListItem();
-	pCurr = pCurr->link;
+	//pCurr = pCurr->link;
 
 	cout << endl;
 }
@@ -323,8 +323,7 @@ void List<T>::sortID(bool asc) {
 		} //if it found better node,swap the data
 	}
 
-	cout << "List sorted by ID "
-		<< (asc ? "(Ascending)" : "(Descending)") << endl;
+	cout << "List sorted by ID " << (asc ? "(Ascending)" : "(Descending)") << endl;
 } //pstart moves to the next node,until the list is fully sorted
 
 	

@@ -1,8 +1,9 @@
 #ifndef MAINTENANCE_H
 #define MAINTENANCE
 #include "Equipment.h"
+#include "IListable.h"
 
-class Maintenance {
+class Maintenance : public IListable {
 private:
 	int id;
 	Equipment equip;
@@ -25,6 +26,8 @@ public:
 	string getDate();
 	string getStatus();
 
+	static void printListLabel(); // The label when displaying a Maintenance list
+	void printListItem();
 };
 
 #endif

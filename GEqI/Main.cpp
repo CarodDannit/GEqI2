@@ -7,13 +7,21 @@ using namespace std;
 #include "Equipment.h"
 #include "Consumable.h"
 #include "Maintenance.h"
+#include "SampleData.h"
 
-//LOREM
-//LOREM
-//LOREM
-//LOREM
-//LOREM
-//LOREM
+//hellobhjyuvt687yu
+//ma
+//a
+//
+//alif ba ta
+//arif yang arif
+//mirafet
+//suka makan ape?
+//asam pedas
+//AHI AHMAD
+//Genesis : 67
+//Al-Kahf 1-10
+//hantu
 
 int main() {
 	cout << "\033[31m||===== GEqI - Gym Equipment Inventory System =====||\033[0m\n";
@@ -22,8 +30,8 @@ int main() {
 	List<Equipment> eqp1;
 	List<Consumable> cnm1;
 	List<Maintenance> mnc1;
-	int optionMenu, optionAdd, optionDisplay;
-
+	int optionMenu, optionAdd, optionDisplay,optionSearch, optionMnc, asc;
+	insertSampleData(eqp1, cnm1);
 	do {
 
 		cout << "1:display\n2:add\n3:delete\n4:sort\n5:search\n6:maintenance\n7:exit\n";
@@ -31,15 +39,15 @@ int main() {
 		cin >> optionMenu;
 		system("cls");
 		switch (optionMenu) {
-		case 1: //display equipment and consumable
+		case 1: //display equipment and consumable...
 			cout << "\033[32mdisplay item\033[0m" << endl;
 			cout << "1:equipment\n2:consumable" << endl;
 			cout << "option : ";
 			cin >> optionDisplay;
 			system("cls");
 
-			if (optionDisplay == 1) eqp1.printEquipment();
-			else if (optionDisplay == 2) cnm1.printConsumable();
+			if (optionDisplay == 1) eqp1.printList();
+			else if (optionDisplay == 2) cnm1.printList();
 			break;
 
 		case 2: //add item equipment and consumable
@@ -56,9 +64,83 @@ int main() {
 		case 3: //delete equipment and maybe consumable
 			eqp1.DeleteFront(); 
 			break;
+		
+		case 5: {//ada slaveowner dipaksa,tahun 2001 esok mungkin selasa,hari esok adalah sebelum hari lusa
+			int jamal;//HAHAHAHHAHA
+			cout << "Pick search method:\n";//APPA NI WOIIIIII
+			cout << "1. equipment\n";//AKU XNAKKKKK
+			cout << "2. consumable\n";//AKU XNAKKKKKKKKKKKKKKKKKKKKKKKK
+			cin >> jamal;//JANGANNNNNNN
+			system("cls");//AGHHHHHHHHHHHHHHHHHHHHHHHH
+			cout << "1. Sentinel Search\n";//TAKOTTTTTT
+			cout << "2. Binary Search\n";//XBOLEHGHHHHHH
+			cin >> optionSearch;//APE NIIIIIIIIIIIIIIII
+			system("cls");//APEKAHHHHHHHHHHHHHHHHHHHHHH
+
+			int targetID, location;//sebenarnya salah ni,tapi boleh run
+			cout << "Enter ID to search: ";
+			cin >> targetID;
+
+			bool found = false;
+			if (jamal == 1) {
+				if (optionSearch == 1) {
+					found = eqp1.SearchItem(targetID, location);
+					if (found) {
+						cout << "\033[32mItem found at position: " << location << "\033[0m\n";
+						eqp1.printSingle();
+					}
+					else {
+						cout << "\033[31mItem not found\033[0m\n";
+					}
+				}
+			}if (jamal == 2) {
+				if (optionSearch == 1) {
+					found = eqp1.SearchItem(targetID, location);
+					if (found) {
+						cout << "\033[32mItem found at position: " << location << "\033[0m\n";
+						eqp1.printSingle();
+					}
+					else {
+						cout << "\033[31mItem not found\033[0m\n";
+					}
+				}
+			}
+			break;
+		}
+
+		case 4: //selection sorting
+			cout << "\033[32mdisplay item\033[0m" << endl;
+			cout << "1:equipment\n2:consumable" << endl;
+			cin >> optionDisplay;
+			system("cls");
+
+
+			cout << "1. Ascending\n";
+			cout << "2. Descending\n";
+			cout << "Choose order: ";
+			cin >> asc;
+			system("cls");
+
+			if (optionDisplay == 1) { // EQUIPMENT
+				if (asc == 1)
+					eqp1.sortID(true);
+				else
+					eqp1.sortID(false);
+
+				eqp1.printList(); // display after sorting
+			}
+			else if (optionDisplay == 2) { // CONSUMABLE
+				if (asc == 1)
+					cnm1.sortID(true);
+				else
+					cnm1.sortID(false);
+
+				cnm1.printList(); // display after sorting
+			}
+			break;
+
 
 		case 6: //maintenance.. can add maintenance and maybe update status?
-			int optionMnc;
 			cout << "\033[32mMaintenance\033[0m" << endl;
 			cout << "1:display\n2:add\n3:update" << endl;
 			cout << "option : ";

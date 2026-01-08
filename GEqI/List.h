@@ -1,6 +1,7 @@
 #ifndef LIST_H
 #define LIST_H
 class Equipment;
+class Consumable;
 
 template <class T>
 class List {
@@ -23,13 +24,20 @@ public:
 	void AddToFront();
 	void AddMaintenance(List<Equipment>& equipmentList);
 	void DeleteFront();
-	//ammar buat binary, sentinel
+	//ammar (search) : binary, sentinel
+	//binary sentinel
 	bool SearchItem(int, int&);
+	void printList();
+	void printSingle();
 	void printEquipment();
+	void printSingleEquipment(int targetID);//idk how,but it works. might not even working. put your trust in lord
 	void printConsumable();
+	void printSingleConsumable(int targetID);//same thing.but it does not work
 	void printMaintenance();
 	int NumberOfItem();
-	//function sorting based on id (ascending or decending) ni amira
+	//function sorting based on id (ascending or decending) : amira
+	void sortID(bool asc); //loollolololololol
+	//lololololol
 };
 
 #endif
@@ -100,22 +108,89 @@ bool List<T>::SearchItem(int targetID, int& loc) {
 		cout << "There is no item in the list" << endl;
 		return false;
 	}
-	else {
-		pCurr = pHead;
-		loc = 0;
-		while (pCurr != nullptr) {
-			if (pCurr->data.getID() == targetID) {
-				return true;
-			}
-			pCurr = pCurr->link;
-			loc++;
-		}
-		return false;
+
+	Node* sentinel = new Node();
+	sentinel->data.setID(targetID); 
+	sentinel->link = nullptr;
+
+	// Attach sentinel to end of list
+	pCurr = pHead;
+	Node* pLast = nullptr;
+	while (pCurr != nullptr) {
+		pLast = pCurr;
+		pCurr = pCurr->link;
 	}
+	if (pLast) pLast->link = sentinel;
+	else pHead = sentinel;
+
+	// Search with sentinel
+	pCurr = pHead;
+	loc = 0;
+	while (pCurr->data.getID() != targetID) {
+		pCurr = pCurr->link;
+		loc++;
+	}
+
+	// Remove sentinel
+	if (pLast) pLast->link = nullptr;
+	else pHead = nullptr;
+
+	bool found = (loc < numItem);
+	delete sentinel;
+
+	return found;
 }
 
 template <class T>
-void List<T>::printEquipment() {
+void List<T>::printList() { // unified method to display a list
+	pCurr = pHead;
+	pCurr->data.printListLabel();
+	while (pCurr != 0) {
+		pCurr->data.printListItem();
+		pCurr = pCurr->link;
+	}
+	cout << endl;
+}
+
+template <class T>
+void List<T>::printSingle() {
+	// ?? idk
+	// try looking for ur item first, then printListItem() it. Go marr
+	//pCurr = pHead;
+	pCurr->data.printListLabel();
+	pCurr->data.printListItem();
+	//pCurr = pCurr->link;
+
+	cout << endl;
+}
+
+//template <class T>
+//void List<T>::printEquipment() {
+//	pCurr = pHead;
+//	cout << "\033[31m+---------------------------------------------------------------------------+\033[0m\n";
+//	cout << "\033[31m| "
+//		<< left << setw(6) << "ID" << "| "
+//		<< setw(15) << "NAME" << "| "
+//		<< setw(15) << "CATEGORY" << "| "
+//		<< setw(15) << "STATUS" << "| "
+//		<< setw(15) << "CONDITION"
+//		<< "|\033[0m\n";
+//	cout << "\033[31m+---------------------------------------------------------------------------+\033[0m\n";
+//	while (pCurr != 0) {
+//		cout << "| "
+//			<< left << setw(6) << pCurr->data.getID() << "| "
+//			<< setw(15) << pCurr->data.getName() << "| "
+//			<< setw(15) << pCurr->data.getCategory() << "| "
+//			<< setw(15) << pCurr->data.getStatus() << "| "
+//			<< setw(15) << pCurr->data.getCondition()
+//			<< "|\n";
+//		pCurr = pCurr->link;
+//	}
+//	cout << endl;
+//}
+
+template <class T>
+void List<T>::printSingleEquipment(int targetID) {
 	pCurr = pHead;
 	cout << "\033[31m+---------------------------------------------------------------------------+\033[0m\n";
 	cout << "\033[31m| "
@@ -126,7 +201,6 @@ void List<T>::printEquipment() {
 		<< setw(15) << "CONDITION"
 		<< "|\033[0m\n";
 	cout << "\033[31m+---------------------------------------------------------------------------+\033[0m\n";
-	while (pCurr != 0) {
 		cout << "| "
 			<< left << setw(6) << pCurr->data.getID() << "| "
 			<< setw(15) << pCurr->data.getName() << "| "
@@ -135,12 +209,35 @@ void List<T>::printEquipment() {
 			<< setw(15) << pCurr->data.getCondition()
 			<< "|\n";
 		pCurr = pCurr->link;
-	}
+	
 	cout << endl;
 }
 
+//template <class T>
+//void List<T>::printConsumable() {
+//	pCurr = pHead;
+//	cout << "\033[31m+----------------------------------------------------------+\033[0m\n";
+//	cout << "\033[31m| "
+//		<< left << setw(6) << "ID" << "| "
+//		<< setw(15) << "NAME" << "| "
+//		<< setw(15) << "QUANTITY" << "| "
+//		<< setw(15) << "UNIT PRICE RM"
+//		<< "|\033[0m\n";
+//	cout << "\033[31m+----------------------------------------------------------+\033[0m\n";
+//	while (pCurr != 0) {
+//		cout << "| "
+//			<< left << setw(6) << pCurr->data.getID() << "| "
+//			<< setw(15) << pCurr->data.getName() << "| "
+//			<< setw(15) << pCurr->data.getQuantity() << "| "
+//			<< setw(15) << pCurr->data.getUnitPrice()
+//			<< "|\n";
+//		pCurr = pCurr->link;
+//	}
+//	cout << endl;
+//}
+
 template <class T>
-void List<T>::printConsumable() {
+void List<T>::printSingleConsumable(int targetID) {
 	pCurr = pHead;
 	cout << "\033[31m+----------------------------------------------------------+\033[0m\n";
 	cout << "\033[31m| "
@@ -150,7 +247,6 @@ void List<T>::printConsumable() {
 		<< setw(15) << "UNIT PRICE RM"
 		<< "|\033[0m\n";
 	cout << "\033[31m+----------------------------------------------------------+\033[0m\n";
-	while (pCurr != 0) {
 		cout << "| "
 			<< left << setw(6) << pCurr->data.getID() << "| "
 			<< setw(15) << pCurr->data.getName() << "| "
@@ -158,7 +254,7 @@ void List<T>::printConsumable() {
 			<< setw(15) << pCurr->data.getUnitPrice()
 			<< "|\n";
 		pCurr = pCurr->link;
-	}
+	
 	cout << endl;
 }
 
@@ -194,6 +290,42 @@ template <class T>
 int List<T>::NumberOfItem() {
 	return numItem;
 }
+
+template <class T>
+void List<T>::sortID(bool asc) {
+	if (pHead == nullptr || pHead->link == nullptr) {
+		return; 
+	} // if the list is empty/only 1 item,no need to sort
+
+	for (Node* pStart = pHead; pStart != nullptr; pStart = pStart->link) {
+		Node* pSelect = pStart;
+
+		for (Node* pNext = pStart->link; pNext != nullptr; pNext = pNext->link) { //compare ID to find the best candidate
+			if (asc) {
+				// ascending order
+				if (pNext->data.getID() < pSelect->data.getID()) {
+					pSelect = pNext;
+				} //if ascending,look for smaller ID
+			}
+			else {
+				// descending order
+				if (pNext->data.getID() > pSelect->data.getID()) {
+					pSelect = pNext;
+				} //if descending,look for a bigger ID
+			}
+		}
+
+		
+		if (pSelect != pStart) {
+			T temp = pStart->data;
+			pStart->data = pSelect->data;
+			pSelect->data = temp;
+		} //if it found better node,swap the data
+	}
+
+	cout << "List sorted by ID " << (asc ? "(Ascending)" : "(Descending)") << endl;
+} //pstart moves to the next node,until the list is fully sorted
+
 	
 
 

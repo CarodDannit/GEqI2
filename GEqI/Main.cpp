@@ -147,7 +147,7 @@ int main() {
 			cin >> optionMnc;
 			system("cls");
 
-			if (optionMnc == 1)  mnc1.printMaintenance();
+			if (optionMnc == 1)  mnc1.printList();
 			else if (optionMnc == 2) mnc1.AddMaintenance(eqp1);
 			else if (optionMnc == 3) {}; //don't know to add what
 			break;

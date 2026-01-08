@@ -94,6 +94,6 @@ void Maintenance::printListItem() {
 		<< setw(20) << getIssue() << "| "
 		<< setw(15) << getCost() << "| "
 		<< setw(15) << getDate() << "| "
-		<< setw(15) << getStatus() << "| "
+		<< setw(15) << getStatus()
 		<< "|\n";
 }

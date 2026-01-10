@@ -4,7 +4,6 @@
 using namespace std;
 #include "List.h"
 #include "Maintenance.h"
-////// ARIFFFFFFFFFseb gjaSDVilAWejfDFGDFGDFGDk wB,FBHSD/LG WEHTG VJKWRGKJEKJ L;JLJK HJ
 List<Equipment>* Maintenance::equipmentList;
 
 Maintenance::Maintenance() {

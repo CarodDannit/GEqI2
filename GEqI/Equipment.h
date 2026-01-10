@@ -13,6 +13,7 @@ public:
 	~Equipment();
 
 	void inputData();
+	int getNextID();
 
 	//get method
 

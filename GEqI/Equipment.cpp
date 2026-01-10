@@ -13,8 +13,13 @@ Equipment::Equipment() {
 
 Equipment::~Equipment() {}
 
+int Equipment::getNextID() {
+	int static count = 0;
+	return count++;
+}
+
 void Equipment::inputData() {
-	Item::inputData();
+	Item::inputData(getNextID());
 	cout << "category : ";
 	cin >> category;
 	cout << "status : ";

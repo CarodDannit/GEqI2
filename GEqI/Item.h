@@ -9,8 +9,8 @@ private:
 public:
 	Item();
 	~Item();
-	int getNextID();
-	void inputData();
+	virtual int getNextID() { return 0; }
+	void inputData(int);
 
 	//get method
 	int getID();

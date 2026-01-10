@@ -18,7 +18,8 @@ int main() {
 	List<Equipment> eqp1;
 	List<Consumable> cnm1;
 	List<Maintenance> mnc1;
-	int optionMenu, optionAdd, optionDisplay, optionSort, methodSearch, optionSearch, optionMnc, asc;
+	Maintenance::setEquipments(eqp1);
+	int optionMenu, optionAdd, optionDisplay, methodSearch, optionSearch, optionMnc, asc;
 	insertSampleData(eqp1, cnm1);
 	do {
 
@@ -137,6 +138,7 @@ int main() {
 
 			if (optionMnc == 1)  mnc1.printList();
 			else if (optionMnc == 2) mnc1.AddMaintenance(eqp1);
+			else if (optionMnc == 3) {}; //don't know to add what
 			break;
 		
 		case 7: default: return false;

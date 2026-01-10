@@ -11,13 +11,8 @@ Item::Item() {
 
 Item::~Item() {}
 
-int Item::getNextID() {
-	int static count = 0;
-	return count++;
-}
-
-void Item::inputData() {
-	id = getNextID();
+void Item::inputData(int id) {
+	Item::id = id;
 	cin.ignore(1, '\n');
 	cout << "name : ";
 	getline(cin, name);

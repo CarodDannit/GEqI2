@@ -12,6 +12,7 @@ public:
 	Consumable();
 	~Consumable();
 
+	int getNextID();
 	void inputData();
 
 	int getQuantity();

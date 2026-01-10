@@ -22,7 +22,7 @@ public:
 	List();
 	~List();
 	void AddToFront();
-	void AddMaintenance(List<Equipment>& equipmentList);
+	//void AddMaintenance(List<Equipment>& equipmentList);
 	void DeleteFront();
 	//ammar (search) : binary, sentinel
 	//binary sentinel
@@ -67,16 +67,16 @@ void List<T>::AddToFront() {
 	numItem++;
 }
 
-template <class T>
-void List<T>::AddMaintenance(List<Equipment>& equipmentList) {
-	T item;
-	item.inputData(equipmentList);
-	Node* pNew = new Node();
-	pNew->data = item;
-	pNew->link = pHead;
-	pHead = pNew;
-	numItem++;
-}
+//template <class T>
+//void List<T>::AddMaintenance(List<Equipment>& equipmentList) {
+//	T item;
+//	item.inputData(equipmentList);
+//	Node* pNew = new Node();
+//	pNew->data = item;
+//	pNew->link = pHead;
+//	pHead = pNew;
+//	numItem++;
+//}
 
 
 

@@ -20,7 +20,6 @@ Maintenance::~Maintenance(){}
 
 void Maintenance::setEquipments(List<Equipment>& eqpList) {
 	equipmentList = &eqpList;
-	cout << equipmentList << endl;
 }
 
 int Maintenance::getNextID() {

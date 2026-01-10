@@ -13,8 +13,13 @@ Consumable::Consumable() {
 
 Consumable::~Consumable() {};
 
+int Consumable::getNextID() {
+	int static count = 0;
+	return count++;
+}
+
 void Consumable::inputData() {
-	Item::inputData();
+	Item::inputData(getNextID());
 	cout << "quantity : ";
 	cin >> quantity;
 	cout << "Unit Price : RM ";

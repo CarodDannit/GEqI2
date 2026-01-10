@@ -28,7 +28,7 @@ void insertSampleData(List<Equipment>& equipments, List<Consumable>& consumables
 
 	cout.rdbuf(original_cout_buffer);
 	cin.rdbuf(original_cin_buffer);
-	cout << "\n=== sample data inserted ===\n\n";
+	//cout << "\n=== sample data inserted ===\n\n";
 }
 
 #endif

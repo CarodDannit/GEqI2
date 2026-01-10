@@ -18,7 +18,7 @@ int main() {
 	List<Equipment> eqp1;
 	List<Consumable> cnm1;
 	List<Maintenance> mnc1;
-	int optionMenu, optionAdd, optionDisplay, methodSearch, optionSearch, optionMnc, asc;
+	int optionMenu, optionAdd, optionDisplay, optionSort, methodSearch, optionSearch, optionMnc, asc;
 	insertSampleData(eqp1, cnm1);
 	do {
 
@@ -51,6 +51,33 @@ int main() {
 
 		case 3: //delete equipment and maybe consumable
 			eqp1.DeleteFront(); 
+			break;
+
+		case 4: //selection sorting
+			cout << "\033[32msort item\033[0m" << endl;
+			cout << "1:equipment\n2:consumable" << endl;
+			cin >> optionSort;
+			system("cls");
+			if (optionSort > 2) break;
+
+
+			cout << "1. Ascending\n";
+			cout << "2. Descending\n";
+			cout << "Choose order: ";
+			cin >> asc;
+			system("cls");
+			if (asc > 2) break;
+
+			if (optionSort == 1) { // EQUIPMENT
+				if (asc == 1) eqp1.sortID(true);
+				else if (asc == 2) eqp1.sortID(false);
+				eqp1.printList(); // display after sorting
+			}
+			else if (optionSort == 2) { // CONSUMABLE
+				if (asc == 1) cnm1.sortID(true);
+				else if(asc == 2) cnm1.sortID(false);
+				cnm1.printList(); // display after sorting
+			}
 			break;
 		
 		case 5: {
@@ -99,50 +126,24 @@ int main() {
 			break;
 		}
 
-		case 4: //selection sorting
-			cout << "\033[32mdisplay item\033[0m" << endl;
-			cout << "1:equipment\n2:consumable" << endl;
-			cin >> optionDisplay;
-			system("cls");
-			if (optionDisplay > 2) break;
-
-
-			cout << "1. Ascending\n";
-			cout << "2. Descending\n";
-			cout << "Choose order: ";
-			cin >> asc;
-			system("cls");
-			if (asc > 2) break;
-
-			if (optionDisplay == 1) { // EQUIPMENT
-				if (asc == 1) eqp1.sortID(true);
-				else if(asc == 2) eqp1.sortID(false);
-				eqp1.printList(); // display after sorting
-			}
-			else if (optionDisplay == 2) { // CONSUMABLE
-				if (asc == 1) cnm1.sortID(true);				
-				else cnm1.sortID(false);
-				cnm1.printList(); // display after sorting
-			}
-			break;
-
-
-		case 6: //maintenance.. can add maintenance and maybe update status?
+		
+		case 6: //maintenance.. can add maintenance and display maintenance
 			cout << "\033[32mMaintenance\033[0m" << endl;
-			cout << "1:display\n2:add\n3:update" << endl;
+			cout << "1:display\n2:add" << endl;
 			cout << "option : ";
 			cin >> optionMnc;
 			system("cls");
+			if(optionMnc > 2) break;
 
 			if (optionMnc == 1)  mnc1.printList();
 			else if (optionMnc == 2) mnc1.AddMaintenance(eqp1);
-			else if (optionMnc == 3) {}; //don't know to add what
 			break;
-		case 7: system("exit");
-		default: return false;
+		
+		case 7: default: return false;
 		}
 
 	} while (true);
+
 
 
 

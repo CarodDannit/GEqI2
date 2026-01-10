@@ -26,7 +26,7 @@ public:
 	void DeleteFront();
 	//ammar (search) : binary, sentinel
 	//binary sentinel
-	bool SearchItem(int, int&);
+	bool SearchItem(int, int&, int);
 	void printList();
 	void printSingle();
 	int NumberOfItem();
@@ -100,42 +100,75 @@ void List<T>::DeleteFront() {
 
 
 template <class T>
-bool List<T>::SearchItem(int targetID, int& loc) {
-	if (numItem == 0) {
-		cout << "There is no item in the list" << endl;
+bool List<T>::SearchItem(int targetID, int& loc, int method) {
+	if (method == 1) {
+		if (numItem == 0) {
+			cout << "There is no item in the list" << endl;
+			return false;
+		}
+
+		//create sentinel node - put it at the last of the list that contain the target link and data
+		Node* sentinel = new Node();
+		sentinel->data.setID(targetID);
+		sentinel->link = nullptr;
+
+		// Attach sentinel to end of list
+		pCurr = pHead;
+		Node* pLast = nullptr;
+		while (pCurr != nullptr) {
+			pLast = pCurr;
+			pCurr = pCurr->link;
+		}
+		if (pLast) pLast->link = sentinel;
+		else pHead = sentinel;
+
+		// Search with sentinel
+		pCurr = pHead;
+		loc = 0;
+		while (pCurr->data.getID() != targetID) {
+			pCurr = pCurr->link;
+			loc++;
+		}
+
+		bool found = (loc < numItem);
+
+		// Remove sentinel
+		if (pLast) pLast->link = nullptr;
+		delete sentinel;
+
+		return found;
+	}
+	else if (method == 2) {
+		sortID(true);//force sort asc
+		if (numItem == 0) {
+			return false;
+		}
+
+		int left = 0;
+		int right = numItem - 1;
+
+		//staruto
+		while (left <= right) {
+			int mid = left + (right - left) / 2;
+			Node* pMid = pHead;
+			for (int i = 0; i < mid; i++) {
+				pMid = pMid->link;
+			}
+			if (pMid->data.getID() == targetID) {
+				loc = mid;//found
+				pCurr = pMid;
+				return true;
+			}
+			if (pMid->data.getID() < targetID) {//great ignore left
+				left = mid + 1;
+			}
+			else//small,ignore rige
+				right = mid - 1;
+		}
 		return false;
 	}
 
-	//create sentinel node - put it at the last of the list that contain the target link and data
-	Node* sentinel = new Node();
-	sentinel->data.setID(targetID); 
-	sentinel->link = nullptr;
-
-	// Attach sentinel to end of list
-	pCurr = pHead;
-	Node* pLast = nullptr;
-	while (pCurr != nullptr) {
-		pLast = pCurr;
-		pCurr = pCurr->link;
-	}
-	if (pLast) pLast->link = sentinel;
-	else pHead = sentinel;
-
-	// Search with sentinel
-	pCurr = pHead;
-	loc = 0;
-	while (pCurr->data.getID() != targetID) {
-		pCurr = pCurr->link;
-		loc++;
-	}
-
-	bool found = (loc < numItem);
-
-	// Remove sentinel
-	if(pLast) pLast->link = nullptr;
-	delete sentinel;
-
-	return found;
+	return false;
 }
 
 template <class T>

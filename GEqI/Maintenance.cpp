@@ -39,8 +39,7 @@ void Maintenance::inputData() {
 
 	cout << "equip id : ";
 	cin >> n;
-	cout << equipmentList << endl;
-	if (equipmentList->SearchItem(n, loc)) {
+	if (equipmentList->SearchItem(n, loc, 1)) {
 		cout << "Equipment found!" << endl;
 		equip.setID(n);
 	}
@@ -85,16 +84,16 @@ string Maintenance::getStatus() {
 }
 
 void Maintenance::printListLabel() {
-	cout << "\033[31m+----------------------------------------------------------------------------------------+\033[0m\n";
+	cout << "\033[31m+--------------------------------------------------------------------------------------------------+\033[0m\n";
 	cout << "\033[31m| "
 		<< left << setw(6) << "ID" << "| "
 		<< setw(6) << "EQ ID" << "| "
-		<< setw(20) << "ISSUE" << "| "
+		<< setw(30) << "ISSUE" << "| "
 		<< setw(15) << "COST" << "| "
 		<< setw(15) << "DATE" << "| "
 		<< setw(15) << "STATUS"
 		<< "|\033[0m\n";
-	cout << "\033[31m+----------------------------------------------------------------------------------------+\033[0m\n";
+	cout << "\033[31m+--------------------------------------------------------------------------------------------------+\033[0m\n";
 }
 
 void Maintenance::printListItem() {

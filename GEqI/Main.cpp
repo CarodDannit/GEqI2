@@ -9,19 +9,7 @@ using namespace std;
 #include "Maintenance.h"
 #include "SampleData.h"
 
-//hellobhjyuvt687yu
-//ma
-//a
-//
-//alif ba ta
-//arif yang arif
-//mirafet
-//suka makan ape?
-//asam pedas
-//AHI AHMAD
-//Genesis : 67
-//Al-Kahf 1-10
-//hantu
+
 
 int main() {
 	cout << "\033[31m||===== GEqI - Gym Equipment Inventory System =====||\033[0m\n";
@@ -31,7 +19,7 @@ int main() {
 	List<Consumable> cnm1;
 	List<Maintenance> mnc1;
 	Maintenance::setEquipments(eqp1);
-	int optionMenu, optionAdd, optionDisplay,optionSearch, optionMnc, asc;
+	int optionMenu, optionAdd, optionDisplay, methodSearch, optionSearch, optionMnc, asc;
 	insertSampleData(eqp1, cnm1);
 	do {
 
@@ -66,44 +54,47 @@ int main() {
 			eqp1.DeleteFront(); 
 			break;
 		
-		case 5: {//ada slaveowner dipaksa,tahun 2001 esok mungkin selasa,hari esok adalah sebelum hari lusa
-			int jamal;//HAHAHAHHAHA
-			cout << "Pick search method:\n";//APPA NI WOIIIIII
-			cout << "1. equipment\n";//AKU XNAKKKKK
-			cout << "2. consumable\n";//AKU XNAKKKKKKKKKKKKKKKKKKKKKKKK
-			cin >> jamal;//JANGANNNNNNN
-			system("cls");//AGHHHHHHHHHHHHHHHHHHHHHHHH
-			cout << "1. Sentinel Search\n";//TAKOTTTTTT
-			cout << "2. Binary Search\n";//XBOLEHGHHHHHH
-			cin >> optionSearch;//APE NIIIIIIIIIIIIIIII
-			system("cls");//APEKAHHHHHHHHHHHHHHHHHHHHHH
+		case 5: {
+			int targetID, location;
+			cout << "\033[32msearch item\033[0m" << endl;
+			cout << "1. equipment\n";
+			cout << "2. consumable\n";
+			cin >> optionSearch;
+			system("cls");
+			if (optionSearch > 2) break;
+			
 
-			int targetID, location;//sebenarnya salah ni,tapi boleh run
+			cout << "\033[32mPick search method\033[0m:\n";
+			cout << "1. Sentinel Search\n";
+			cout << "2. Binary Search\n";
+			cin >> methodSearch;
+			system("cls");
+			if (methodSearch > 2) break;
+			
+
 			cout << "Enter ID to search: ";
 			cin >> targetID;
 
+			
 			bool found = false;
-			if (jamal == 1) {
-				if (optionSearch == 1) {
-					found = eqp1.SearchItem(targetID, location);
-					if (found) {
-						cout << "\033[32mItem found at position: " << location << "\033[0m\n";
-						eqp1.printSingle();
-					}
-					else {
-						cout << "\033[31mItem not found\033[0m\n";
-					}
+			if (optionSearch == 1) {
+				found = eqp1.SearchItem(targetID, location, methodSearch);
+				if (found) {
+					cout << "\033[32mEquipment found at position: " << location << "\033[0m\n";
+					eqp1.printSingle();
 				}
-			}if (jamal == 2) {
-				if (optionSearch == 1) {
-					found = eqp1.SearchItem(targetID, location);
-					if (found) {
-						cout << "\033[32mItem found at position: " << location << "\033[0m\n";
-						eqp1.printSingle();
-					}
-					else {
-						cout << "\033[31mItem not found\033[0m\n";
-					}
+				else {
+					cout << "\033[31mEquipment not found\033[0m\n";
+				}
+			}
+			else if (optionSearch == 2) {
+				found = cnm1.SearchItem(targetID, location, methodSearch);
+				if (found) {
+					cout << "\033[32mConsumable found at position: " << location << "\033[0m\n";
+					cnm1.printSingle();
+				}
+				else {
+					cout << "\033[31mConsumable not found\033[0m\n";
 				}
 			}
 			break;
@@ -114,6 +105,7 @@ int main() {
 			cout << "1:equipment\n2:consumable" << endl;
 			cin >> optionDisplay;
 			system("cls");
+			if (optionDisplay > 2) break;
 
 
 			cout << "1. Ascending\n";
@@ -121,21 +113,16 @@ int main() {
 			cout << "Choose order: ";
 			cin >> asc;
 			system("cls");
+			if (asc > 2) break;
 
 			if (optionDisplay == 1) { // EQUIPMENT
-				if (asc == 1)
-					eqp1.sortID(true);
-				else
-					eqp1.sortID(false);
-
+				if (asc == 1) eqp1.sortID(true);
+				else if(asc == 2) eqp1.sortID(false);
 				eqp1.printList(); // display after sorting
 			}
 			else if (optionDisplay == 2) { // CONSUMABLE
-				if (asc == 1)
-					cnm1.sortID(true);
-				else
-					cnm1.sortID(false);
-
+				if (asc == 1) cnm1.sortID(true);				
+				else cnm1.sortID(false);
 				cnm1.printList(); // display after sorting
 			}
 			break;

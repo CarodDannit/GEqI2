@@ -11,6 +11,8 @@ public:
 	~Item();
 	virtual int getNextID() = 0;
 	void inputData(int);
+	virtual void printListLabel() = 0;
+	virtual void printListItem() = 0;
 
 	//get method
 	int getID();

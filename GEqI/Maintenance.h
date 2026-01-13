@@ -1,11 +1,10 @@
 #ifndef MAINTENANCE_H
 #define MAINTENANCE_H
 #include "Equipment.h"
-#include "IListable.h"
 template<class T>
 class List;
 
-class Maintenance : public IListable {
+class Maintenance {
 private:
 	int id;
 	Equipment equip;

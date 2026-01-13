@@ -1,9 +1,8 @@
 #ifndef CONSUMABLE_H
 #define CONSUMABLE_H
 #include "Item.h"
-#include "IListable.h"
 
-class Consumable : public Item, public IListable {
+class Consumable : public Item {
 private:
 	int quantity;
 	double unitPrice;
@@ -18,7 +17,7 @@ public:
 	int getQuantity();
 	double getUnitPrice();
 
-	static void printListLabel(); // The label when displaying a Consumable list
+	void printListLabel(); // The label when displaying a Consumable list
 	void printListItem();
 };
 

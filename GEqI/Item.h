@@ -9,7 +9,7 @@ private:
 public:
 	Item();
 	~Item();
-	virtual int getNextID() { return 0; }
+	virtual int getNextID() = 0;
 	void inputData(int);
 
 	//get method

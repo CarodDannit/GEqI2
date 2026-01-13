@@ -7,20 +7,20 @@ class List;
 
 class Maintenance : public IListable {
 private:
-	static List<Equipment>* equipmentList;
 	int id;
 	Equipment equip;
 	string issue;
 	double cost;
 	string date;
 	string status;
+	static List<Equipment>* equipmentList;
 
 public:
 	Maintenance();
 	~Maintenance();
 	static void setEquipments(List<Equipment>&);
 
-	void inputData();
+	bool inputData();
 	int getNextID();
 
 	int getID();

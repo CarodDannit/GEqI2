@@ -18,7 +18,7 @@ int Equipment::getNextID() {
 	return count++;
 }
 
-void Equipment::inputData() {
+bool Equipment::inputData() {
 	Item::inputData(getNextID());
 	cout << "category : ";
 	cin >> category;
@@ -26,6 +26,7 @@ void Equipment::inputData() {
 	cin >> status;
 	cout << "condition : ";
 	cin >> condition;
+	return true;
 }
 
 string Equipment::getCategory() {

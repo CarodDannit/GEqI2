@@ -13,7 +13,7 @@ public:
 	~Consumable();
 
 	int getNextID();
-	void inputData();
+	bool inputData();
 
 	int getQuantity();
 	double getUnitPrice();
@@ -23,5 +23,3 @@ public:
 };
 
 #endif
-//hi hello
-

@@ -12,7 +12,7 @@ public:
 	Equipment();
 	~Equipment();
 
-	void inputData();
+	bool inputData();
 	int getNextID();
 
 	//get method

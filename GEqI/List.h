@@ -22,10 +22,8 @@ public:
 	List();
 	~List();
 	void AddToFront();
-	//void AddMaintenance(List<Equipment>& equipmentList);
 	void DeleteFront();
 	//ammar (search) : binary, sentinel
-	//binary sentinel
 	bool SearchItem(int, int&, int);
 	void printList();
 	void printSingle();
@@ -59,7 +57,7 @@ List<T>::~List() {
 template <class T>
 void List<T>::AddToFront() {
 	T item;
-	item.inputData();
+	if (!item.inputData()) return;
 	Node* pNew = new Node();
 	pNew->data = item;
 	pNew->link = pHead;
@@ -67,20 +65,7 @@ void List<T>::AddToFront() {
 	numItem++;
 }
 
-//template <class T>
-//void List<T>::AddMaintenance(List<Equipment>& equipmentList) {
-//	T item;
-//	item.inputData(equipmentList);
-//	Node* pNew = new Node();
-//	pNew->data = item;
-//	pNew->link = pHead;
-//	pHead = pNew;
-//	numItem++;
-//}
-
-
-
-//belum siap
+//setakat ni je
 template <class T>
 void List<T>::DeleteFront() {
 	if (pHead != nullptr) {
@@ -88,7 +73,7 @@ void List<T>::DeleteFront() {
 		pHead = pHead->link;
 		delete pTemp;
 		numItem--;
-		cout << "First Item Deleted" << endl;
+		cout << "First Item Deleted (equipment)" << endl;
 	}
 	else {
 		cout << "\033[31mThere are no equipment left to be deleted\033[0m\n";

@@ -18,12 +18,13 @@ int Consumable::getNextID() {
 	return count++;
 }
 
-void Consumable::inputData() {
+bool Consumable::inputData() {
 	Item::inputData(getNextID());
 	cout << "quantity : ";
 	cin >> quantity;
 	cout << "Unit Price : RM ";
 	cin >> unitPrice;
+	return true;
 }
 
 int Consumable::getQuantity() {

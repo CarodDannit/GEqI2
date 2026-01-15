@@ -22,20 +22,17 @@ public:
 	List();
 	~List();
 	void AddToFront();
-	//void AddMaintenance(List<Equipment>& equipmentList);
 	void DeleteFront();
-	//ammar (search) : binary, sentinel
-	//binary sentinel
 	bool SearchItem(int, int&, int);
 	void printList();
 	void printSingle();
 	int NumberOfItem();
-	//function sorting based on id (ascending or decending) : amira
 	void sortID(bool asc); 
 };
 
 #endif
 
+//constructor - called when create new objects
 template <class T>
 List<T>::List() {
 	numItem = 0;
@@ -43,6 +40,7 @@ List<T>::List() {
 	pCurr = nullptr;
 }
 
+//destructor - destroy every object when exit the program
 template <class T>
 List<T>::~List() {
 	pCurr = pHead;
@@ -56,41 +54,30 @@ List<T>::~List() {
 	numItem = 0;
 }
 
+//function to add item(Equipment/ Consumable) and Maintenance in a List
 template <class T>
 void List<T>::AddToFront() {
 	T item;
-	item.inputData();
-	Node* pNew = new Node();
-	pNew->data = item;
-	pNew->link = pHead;
-	pHead = pNew;
-	numItem++;
+	item.inputData();  // Ask the user to input data for the item
+	Node* pNew = new Node(); // Create a new node
+	pNew->data = item; // store the item data inside the new node
+	pNew->link = pHead; //Link the new node to the current head of the list
+	pHead = pNew; //make pHead point to the new node
+	numItem++; //increase the total number of items in the list
 }
 
-//template <class T>
-//void List<T>::AddMaintenance(List<Equipment>& equipmentList) {
-//	T item;
-//	item.inputData(equipmentList);
-//	Node* pNew = new Node();
-//	pNew->data = item;
-//	pNew->link = pHead;
-//	pHead = pNew;
-//	numItem++;
-//}
 
-
-
-//belum siap
+//delete the last equipment added in Equipment list
 template <class T>
 void List<T>::DeleteFront() {
 	if (pHead != nullptr) {
-		Node* pTemp = pHead;
-		pHead = pHead->link;
-		delete pTemp;
-		numItem--;
+		Node* pTemp = pHead; // create a temporary node
+		pHead = pHead->link; //moves pHead forward in the list
+		delete pTemp; //delete the data and the link that pTemp reference to
+		numItem--; // decrease the total number of items in the list
 		cout << "First Item Deleted" << endl;
 	}
-	else {
+	else { //if PHead is null, means there is no item
 		cout << "\033[31mThere are no equipment left to be deleted\033[0m\n";
 	}
 
@@ -172,7 +159,7 @@ bool List<T>::SearchItem(int targetID, int& loc, int method) {
 }
 
 template <class T>
-void List<T>::printList() { // unified method to display a list
+void List<T>::printList() { // unified method to display a list (print Equipment, Consumable, Maintenance)
 	pCurr = pHead;
 	pCurr->data.printListLabel();
 	while (pCurr != 0) {
@@ -197,7 +184,7 @@ void List<T>::printSingle() {
 
 
 template <class T>
-int List<T>::NumberOfItem() {
+int List<T>::NumberOfItem() {// get the total number of Item in a list
 	return numItem;
 }
 

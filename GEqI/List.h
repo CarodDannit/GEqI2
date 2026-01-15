@@ -70,7 +70,7 @@ void List<T>::AddToFront() {
 
 
 
-//belum siap
+
 template <class T>
 void List<T>::DeleteFront() {
 	if (pHead != nullptr) {
@@ -173,14 +173,9 @@ void List<T>::printList() { // unified method to display a list (print Equipment
 }
 
 template <class T>
-void List<T>::printSingle() {
-	// ?? idk
-	// try looking for ur item first, then printListItem() it. Go marr
-	//pCurr = pHead;
+void List<T>::printSingle() { //
 	pCurr->data.printListLabel();
 	pCurr->data.printListItem();
-	//pCurr = pCurr->link;
-
 	cout << endl;
 }
 

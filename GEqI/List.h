@@ -164,6 +164,8 @@ bool List<T>::SearchItem(int targetID, int& loc, int method) {
 template <class T>
 void List<T>::printList() { // unified method to display a list (print Equipment, Consumable, Maintenance)
 	pCurr = pHead;
+
+	cout << std::fixed << std::setprecision(2);
 	pCurr->data.printListLabel();
 	while (pCurr != 0) {
 		pCurr->data.printListItem();

@@ -58,26 +58,29 @@ List<T>::~List() {
 template <class T>
 void List<T>::AddToFront() {
 	T item;
-	item.inputData();  // Ask the user to input data for the item
-	Node* pNew = new Node(); // Create a new node
-	pNew->data = item; // store the item data inside the new node
-	pNew->link = pHead; //Link the new node to the current head of the list
-	pHead = pNew; //make pHead point to the new node
-	numItem++; //increase the total number of items in the list
+	if (!item.inputData()) return;
+	Node* pNew = new Node();
+	pNew->data = item;
+	pNew->link = pHead;
+	pHead = pNew;
+	numItem++;
 }
 
 
-//delete the last equipment added in Equipment list
+
+
+
+//belum siap
 template <class T>
 void List<T>::DeleteFront() {
 	if (pHead != nullptr) {
-		Node* pTemp = pHead; // create a temporary node
-		pHead = pHead->link; //moves pHead forward in the list
-		delete pTemp; //delete the data and the link that pTemp reference to
-		numItem--; // decrease the total number of items in the list
+		Node* pTemp = pHead;
+		pHead = pHead->link;
+		delete pTemp;
+		numItem--;
 		cout << "First Item Deleted" << endl;
 	}
-	else { //if PHead is null, means there is no item
+	else { 
 		cout << "\033[31mThere are no equipment left to be deleted\033[0m\n";
 	}
 

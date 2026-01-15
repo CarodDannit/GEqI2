@@ -30,7 +30,7 @@ void Maintenance::setID(int n) {
 	id = n;
 }
 
-void Maintenance::inputData() {
+bool Maintenance::inputData() {
 	id = getNextID();
 	int n;
 	int loc;
@@ -43,7 +43,7 @@ void Maintenance::inputData() {
 	}
 	else {
 		cout << "Equipment not found!" << endl;
-		equip.setID(n);
+		return false;
 	}
 	
 	cin.ignore(1, '\n');
@@ -55,6 +55,7 @@ void Maintenance::inputData() {
 	cin >> date;
 	cout << "status : ";
 	cin >> status;
+	return true;
 }
 
 int Maintenance::getID() {
@@ -82,23 +83,23 @@ string Maintenance::getStatus() {
 }
 
 void Maintenance::printListLabel() {
-	cout << "\033[31m+--------------------------------------------------------------------------------------------------+\033[0m\n";
+	cout << "\033[31m+----------------------------------------------------------------------------------------------+\033[0m\n";
 	cout << "\033[31m| "
 		<< left << setw(6) << "ID" << "| "
 		<< setw(6) << "EQ ID" << "| "
-		<< setw(30) << "ISSUE" << "| "
+		<< setw(25) << "ISSUE" << "| "
 		<< setw(15) << "COST" << "| "
 		<< setw(15) << "DATE" << "| "
 		<< setw(15) << "STATUS"
 		<< "|\033[0m\n";
-	cout << "\033[31m+--------------------------------------------------------------------------------------------------+\033[0m\n";
+	cout << "\033[31m+----------------------------------------------------------------------------------------------+\033[0m\n";
 }
 
 void Maintenance::printListItem() {
 	cout << "| "
 		<< left << setw(6) << getID() << "| "
 		<< setw(6) << getEquipID() << "| "
-		<< setw(20) << getIssue() << "| "
+		<< setw(25) << getIssue() << "| "
 		<< setw(15) << getCost() << "| "
 		<< setw(15) << getDate() << "| "
 		<< setw(15) << getStatus()

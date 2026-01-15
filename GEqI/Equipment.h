@@ -1,9 +1,8 @@
 #ifndef EQUIPMENT_H
 #define EQUIPMENT_H
 #include "Item.h"
-#include "IListable.h"
 
-class Equipment : public Item, public IListable {
+class Equipment : public Item {
 private:
 	string category;
 	string status;
@@ -12,7 +11,7 @@ public:
 	Equipment();
 	~Equipment();
 
-	void inputData();
+	bool inputData();
 	int getNextID();
 
 	//get method
@@ -21,7 +20,7 @@ public:
 	string getStatus();
 	string getCondition();
 
-	static void printListLabel(); // The label when displaying an Equipment list
+	void printListLabel(); // The label when displaying an Equipment list
 	void printListItem();
 };
 

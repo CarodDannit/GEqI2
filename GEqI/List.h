@@ -32,7 +32,9 @@ public:
 
 #endif
 
-//constructor - called when create new objects
+
+//imran
+//constructor - called when create new list
 template <class T>
 List<T>::List() {
 	numItem = 0;
@@ -40,6 +42,8 @@ List<T>::List() {
 	pCurr = nullptr;
 }
 
+
+//imran
 //destructor - destroy every object when exit the program
 template <class T>
 List<T>::~List() {
@@ -54,6 +58,8 @@ List<T>::~List() {
 	numItem = 0;
 }
 
+
+//imran, ahmad
 //function to add item(Equipment/ Consumable) and Maintenance in a List
 template <class T>
 void List<T>::AddToFront() {
@@ -67,10 +73,8 @@ void List<T>::AddToFront() {
 }
 
 
-
-
-
-
+//imran
+//delete the first node in Equipment list
 template <class T>
 void List<T>::DeleteFront() {
 	if (pHead != nullptr) {
@@ -80,15 +84,14 @@ void List<T>::DeleteFront() {
 		numItem--;
 		cout << "First Item Deleted" << endl;
 	}
-	else { 
+	else {
 		cout << "\033[31mThere are no equipment left to be deleted\033[0m\n";
 	}
 
 }
 
 
-
-
+//ammar
 template <class T>
 bool List<T>::SearchItem(int targetID, int& loc, int method) {
 	if (method == 1) {
@@ -152,7 +155,7 @@ bool List<T>::SearchItem(int targetID, int& loc, int method) {
 			if (pMid->data.getID() < targetID) {//great ignore left
 				left = mid + 1;
 			}
-			else//small,ignore rige
+			else//small,ignore right
 				right = mid - 1;
 		}
 		return false;
@@ -161,33 +164,42 @@ bool List<T>::SearchItem(int targetID, int& loc, int method) {
 	return false;
 }
 
+
+//ahmad, imran
+// unified method to display a list (print Equipment, Consumable, Maintenance)
 template <class T>
-void List<T>::printList() { // unified method to display a list (print Equipment, Consumable, Maintenance)
+void List<T>::printList() {
 	pCurr = pHead;
 
 	cout << std::fixed << std::setprecision(2);
 	pCurr->data.printListLabel();
-	while (pCurr != 0) {
+	while (pCurr) {
 		pCurr->data.printListItem();
 		pCurr = pCurr->link;
 	}
 	cout << endl;
 }
 
+
+//ahmad
+// unified method to display one item pointed by pCurr (after a successful SearchItem())
 template <class T>
 void List<T>::printSingle() { //
+	cout << std::fixed << std::setprecision(2);
 	pCurr->data.printListLabel();
 	pCurr->data.printListItem();
 	cout << endl;
 }
 
 
-
+//imran
 template <class T>
 int List<T>::NumberOfItem() {// get the total number of Item in a list
 	return numItem;
 }
 
+
+//amira
 template <class T>
 void List<T>::sortID(bool asc) {
 	if (pHead == nullptr || pHead->link == nullptr) {
@@ -222,7 +234,3 @@ void List<T>::sortID(bool asc) {
 
 	cout << "List sorted by ID " << (asc ? "(Ascending)" : "(Descending)") << endl;
 } //pstart moves to the next node,until the list is fully sorted
-
-	
-
-

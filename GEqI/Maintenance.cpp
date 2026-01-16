@@ -6,6 +6,7 @@ using namespace std;
 #include "Maintenance.h"
 List<Equipment>* Maintenance::equipmentList;
 
+//imran
 Maintenance::Maintenance() {
 	id = 0;
 	equip.setID(0);
@@ -15,21 +16,26 @@ Maintenance::Maintenance() {
 	status = "pending";
 }
 
+//imran
 Maintenance::~Maintenance(){}
 
+//ahmad
 void Maintenance::setEquipments(List<Equipment>& eqpList) {
 	equipmentList = &eqpList;
 }
 
+//imran, ahmad
 int Maintenance::getNextID() {
 	int static count = 0;
 	return count++;
 }
 
+//imran
 void Maintenance::setID(int n) {
 	id = n;
 }
 
+//imran, ahmad
 bool Maintenance::inputData() {
 	id = getNextID();
 	int n;
@@ -58,30 +64,37 @@ bool Maintenance::inputData() {
 	return true;
 }
 
+//imran
 int Maintenance::getID() {
 	return id;
 }
 
+//imran
 int Maintenance::getEquipID() {
 	return equip.getID();
 }
 
+//imran
 string Maintenance::getIssue() {
 	return issue;
 }
 
+//imran
 double Maintenance::getCost() {
 	return cost;
 }
 
+//imran
 string Maintenance::getDate() {
 	return date;
 }
 
+//imran
 string Maintenance::getStatus() {
 	return status;
 }
 
+//ahmad, imran
 void Maintenance::printListLabel() {
 	cout << "\033[31m+----------------------------------------------------------------------------------------------+\033[0m\n";
 	cout << "\033[31m| "
@@ -95,6 +108,7 @@ void Maintenance::printListLabel() {
 	cout << "\033[31m+----------------------------------------------------------------------------------------------+\033[0m\n";
 }
 
+//ahmad, imran
 void Maintenance::printListItem() {
 	cout << "| "
 		<< left << setw(6) << getID() << "| "

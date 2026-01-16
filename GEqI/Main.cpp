@@ -11,6 +11,7 @@ using namespace std;
 #include "Maintenance.h"
 #include "SampleData.h"
 
+//collaborative effort from everyone
 int main() {
     // Display system title
     cout << "\033[31m||===== GEqI - Gym Equipment Inventory System =====||\033[0m\n\n";
@@ -20,7 +21,7 @@ int main() {
     List<Consumable> cnm1;
     List<Maintenance> mnc1;
 
-    // Link equipment list to maintenance for reference
+    // Link equipment list to Maintenance class, for reference
     Maintenance::setEquipments(eqp1);
 
     // Variables for menu navigation
@@ -59,7 +60,7 @@ int main() {
             else if (optionAdd == 2) cnm1.AddToFront();
             break;
 
-        case 3: // Delete the first equipment item (stack-style removal)
+        case 3: // Delete the first equipment item (stack-style removal, "pop")
             eqp1.DeleteFront();
             break;
 

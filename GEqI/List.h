@@ -94,12 +94,12 @@ void List<T>::DeleteFront() {
 //ammar
 template <class T>
 bool List<T>::SearchItem(int targetID, int& loc, int method) {
-	if (method == 1) {
-		if (numItem == 0) {
-			cout << "There is no item in the list" << endl;
-			return false;
-		}
+	if (numItem == 0) {
+		cout << "\033[31mThere is no item in the list\033[0m\n" << endl;
+		return false;
+	}
 
+	if (method == 1) {
 		//create sentinel node - put it at the last of the list that contain the target link and data
 		Node* sentinel = new Node();
 		sentinel->data.setID(targetID);
@@ -127,15 +127,13 @@ bool List<T>::SearchItem(int targetID, int& loc, int method) {
 
 		// Remove sentinel
 		if (pLast) pLast->link = nullptr;
+		else pHead = nullptr;
 		delete sentinel;
 
 		return found;
 	}
 	else if (method == 2) {
 		sortID(true);//force sort asc
-		if (numItem == 0) {
-			return false;
-		}
 
 		int left = 0;
 		int right = numItem - 1;
@@ -160,7 +158,6 @@ bool List<T>::SearchItem(int targetID, int& loc, int method) {
 		}
 		return false;
 	}
-
 	return false;
 }
 
@@ -169,6 +166,10 @@ bool List<T>::SearchItem(int targetID, int& loc, int method) {
 // unified method to display a list (print Equipment, Consumable, Maintenance)
 template <class T>
 void List<T>::printList() {
+	if (!pHead) {
+		cout << "\033[31mThe list is empty\033[0m\n";
+		return;
+	}
 	pCurr = pHead;
 
 	cout << std::fixed << std::setprecision(2);
